@@ -1,4 +1,4 @@
-package Server;
+package Server.Company;
 
 public class Follow {
 }

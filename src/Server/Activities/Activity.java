@@ -1,4 +1,4 @@
-package Server;
+package Server.Activities;
 
 public class Activity {
     private int activityID;

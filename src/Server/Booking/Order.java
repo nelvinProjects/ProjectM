@@ -1,4 +1,4 @@
-package Server;
+package Server.Booking;
 
 public class Order {
 }
