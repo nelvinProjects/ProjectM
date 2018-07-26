@@ -1,21 +1,133 @@
 package Tests.ActivitiesTest;
 
 import Server.Activities.Activity;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import Server.Activities.ActivityBuilder;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.TreeSet;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ActivityTest {
 
     private Activity activity;
 
-    @BeforeAll
-    void setUp() {
-        activity = new Activity();
+    @BeforeEach
+    public void setUp() {
+        TreeSet<String> tempTags = new TreeSet<>();
+        tempTags.add("Cycling");
+        tempTags.add("Swimming");
+        activity = new ActivityBuilder().setID(1)
+                .setClient(1)
+                .activityDesc("Test Test Test bye")
+                .date(LocalDate.of(2018,03,01))
+                .time(LocalTime.of(12,56))
+                .preferences(tempTags)
+                .activityLive(true)
+                .advert(true)
+                .build();
     }
 
-    @AfterAll
-    void destroy(){
-        activity = null;
+    @Test
+    public void getActivityID() {
+        assertEquals(1, activity.getActivityID(), "ID Not match");
+    }
+
+    @Test
+    void setActivityID() {
+        activity.setActivityID(2);
+        assertEquals(2, activity.getActivityID(), "ID Not Match");
+    }
+
+    @Test
+    void getClientID() {
+        assertEquals(1, activity.getClientID(), "ID Not Match");
+    }
+
+    @Test
+    void setClientID() {
+        activity.setClientID(2);
+        assertEquals(2, activity.getClientID(), "ID Not Match");
+    }
+
+    @Test
+    void getDescription() {
+        assertEquals("Test Test Test bye", activity.getDescription(),
+                "Description not match");
+    }
+
+    @Test
+    void setDescription() {
+        activity.setDescription("Nothing yet to add");
+        assertEquals("Nothing yet to add", activity.getDescription(),
+                "Description not match");
+    }
+
+    @Test
+    void isActive() {
+        assertEquals(true, activity.isActive(), "Active not match");
+    }
+
+    @Test
+    void setActive() {
+        activity.setActive(false);
+        assertEquals(false, activity.isActive(), "Active not match");
+    }
+
+    @Test
+    void getDate() {
+        assertEquals(LocalDate.of(2018,03,01), activity.getDate(),
+                "Date not match");
+    }
+
+    @Test
+    void setDate() {
+        activity.setDate(LocalDate.of(2018, 05, 12));
+        assertEquals(LocalDate.of(2018,05,12), activity.getDate(),
+                "Date not match");
+    }
+
+    @Test
+    void getTime() {
+        assertEquals(LocalTime.of(12,56), activity.getTime(),
+                "Time not match");
+    }
+
+    @Test
+    void setTime() {
+        activity.setTime(LocalTime.of(15,14));
+        assertEquals(LocalTime.of(15,14), activity.getTime(),
+                "Time not match");
+    }
+
+    @Test
+    void isAdvert() {
+        assertEquals(true, activity.isAdvert(), "Advert not match");
+    }
+
+    @Test
+    void setAdvert() {
+        activity.setAdvert(false);
+        assertEquals(false, activity.isAdvert(), "Advert not match");
+    }
+
+    @Test
+    void getTags() {
+        TreeSet<String> tempTags = new TreeSet<>();
+        tempTags.add("Cycling");
+        tempTags.add("Swimming");
+        assertEquals(tempTags, activity.getTags(), "Tags not match");
+    }
+
+    @Test
+    void setTags() {
+        TreeSet<String> tempTags = new TreeSet<>();
+        tempTags.add("Go kart");
+        tempTags.add("Swimming");
+        activity.setTags(tempTags);
+        assertEquals(tempTags, activity.getTags(), "Tags not match");
     }
 }
