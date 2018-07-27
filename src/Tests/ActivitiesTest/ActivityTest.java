@@ -28,6 +28,7 @@ class ActivityTest {
                 .preferences(tempTags)
                 .activityLive(true)
                 .advert(true)
+                .quantity(5)
                 .streetAddress1("19 King Street")
                 .city("Manchester")
                 .county("Greater Manchester")
@@ -133,6 +134,17 @@ class ActivityTest {
         tempTags.add("Swimming");
         activity.setTags(tempTags);
         assertEquals(tempTags, activity.getTags(), "Tags not match");
+    }
+
+    @Test
+    void getQuantity() {
+        assertEquals(5, activity.getQuantity(), "Quantity not match");
+    }
+
+    @Test
+    void setQuantity() {
+        activity.setQuantity(8);
+        assertEquals(8, activity.getQuantity(), "Quantity not match");
     }
 
     @Test

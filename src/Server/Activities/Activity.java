@@ -5,17 +5,15 @@ import java.time.LocalTime;
 import java.util.TreeSet;
 
 public class Activity extends Location {
-    private int activityID;
-    private int clientID;
+    private int activityID, clientID, quantity;
     private String description;
-    private boolean active;
+    private boolean active, advert;
     private LocalDate date;
     private LocalTime time;
-    private boolean advert;
     private TreeSet<String> tags;
 
     public Activity(int activityID, int clientID, String description, boolean active, LocalDate date,
-                    LocalTime time, boolean advert, TreeSet tags, String address1, String address2, String city,
+                    LocalTime time, boolean advert, TreeSet tags, int quantity, String address1, String address2, String city,
                     String county, String postcode) {
         super(address1, address2, city, county, postcode);
         this.activityID = activityID;
@@ -26,6 +24,8 @@ public class Activity extends Location {
         this.time = time;
         this.advert = advert;
         this.tags = tags;
+        this.quantity = quantity;
+
     }
 
     public int getActivityID() {
@@ -90,5 +90,13 @@ public class Activity extends Location {
 
     public void setTags(TreeSet<String> tags) {
         this.tags = tags;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

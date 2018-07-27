@@ -5,7 +5,7 @@ import java.time.LocalTime;
 import java.util.TreeSet;
 
 public class ActivityBuilder {
-    private int activityID, clientID;
+    private int activityID, clientID, quantity;
     private String description = "Yet to be added :(";
     private boolean active, advert;
     private LocalDate date;
@@ -78,8 +78,13 @@ public class ActivityBuilder {
         return this;
     }
 
+    public ActivityBuilder quantity(int quantity){
+        this.quantity = quantity;
+        return this;
+    }
+
     public Activity build(){
-        return new Activity(activityID,clientID, description, active, date, time, advert, tags,
+        return new Activity(activityID,clientID, description, active, date, time, advert, tags, quantity,
                 streetAddress1, streetAddress2, city, county, postcode);
     }
 

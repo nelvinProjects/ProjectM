@@ -1,8 +1,6 @@
 package Server;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Database {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -20,6 +18,24 @@ public class Database {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static int getMaxID(String tableName){
+        int max = 0;
+        PreparedStatement statement;
+        String getsql = "SELECT MAX(id) from ?";
+        try {
+            statement = Database.dbConnection.prepareStatement(getsql);
+            statement.setString(1, tableName);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) max = rs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        max++;
+        return max;
     }
 
     public void closeConnection() {
