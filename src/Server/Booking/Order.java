@@ -3,13 +3,13 @@ package Server.Booking;
 import java.time.LocalDateTime;
 
 public class Order {
-    private int orderID, clientID, activityID;
+    private int orderID, customerID, activityID;
     private double price;
     private LocalDateTime orderedAt;
 
-    public Order(int orderID, int clientID, int activityID, double price, LocalDateTime dateTime){
+    public Order(int orderID, int customerID, int activityID, double price, LocalDateTime dateTime) {
         this.orderID = orderID;
-        this.clientID = clientID;
+        this.customerID = customerID;
         this.activityID = activityID;
         this.price = price;
         this.orderedAt = dateTime;
@@ -23,12 +23,12 @@ public class Order {
         this.orderID = orderID;
     }
 
-    public int getClientID() {
-        return clientID;
+    public int getCustomerID() {
+        return customerID;
     }
 
-    public void setClientID(int clientID) {
-        this.clientID = clientID;
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
     }
 
     public int getActivityID() {

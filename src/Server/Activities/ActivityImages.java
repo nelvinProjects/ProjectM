@@ -4,7 +4,7 @@ import java.io.OutputStream;
 
 public class ActivityImages {
 
-    public OutputStream retrieveImages(int id){
+    public OutputStream retrieveImages(int activityID){
 
         return null;
     }

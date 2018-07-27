@@ -23,11 +23,15 @@ class ActivityTest {
         activity = new ActivityBuilder().setID(1)
                 .setClient(1)
                 .activityDesc("Test Test Test bye")
-                .date(LocalDate.of(2018,03,01))
-                .time(LocalTime.of(12,56))
+                .date(LocalDate.of(2018, 03, 01))
+                .time(LocalTime.of(12, 56))
                 .preferences(tempTags)
                 .activityLive(true)
                 .advert(true)
+                .streetAddress1("19 King Street")
+                .city("Manchester")
+                .county("Greater Manchester")
+                .postcode("MA1 1NB")
                 .build();
     }
 
@@ -79,27 +83,27 @@ class ActivityTest {
 
     @Test
     void getDate() {
-        assertEquals(LocalDate.of(2018,03,01), activity.getDate(),
+        assertEquals(LocalDate.of(2018, 03, 01), activity.getDate(),
                 "Date not match");
     }
 
     @Test
     void setDate() {
         activity.setDate(LocalDate.of(2018, 05, 12));
-        assertEquals(LocalDate.of(2018,05,12), activity.getDate(),
+        assertEquals(LocalDate.of(2018, 05, 12), activity.getDate(),
                 "Date not match");
     }
 
     @Test
     void getTime() {
-        assertEquals(LocalTime.of(12,56), activity.getTime(),
+        assertEquals(LocalTime.of(12, 56), activity.getTime(),
                 "Time not match");
     }
 
     @Test
     void setTime() {
-        activity.setTime(LocalTime.of(15,14));
-        assertEquals(LocalTime.of(15,14), activity.getTime(),
+        activity.setTime(LocalTime.of(15, 14));
+        assertEquals(LocalTime.of(15, 14), activity.getTime(),
                 "Time not match");
     }
 
@@ -129,5 +133,45 @@ class ActivityTest {
         tempTags.add("Swimming");
         activity.setTags(tempTags);
         assertEquals(tempTags, activity.getTags(), "Tags not match");
+    }
+
+    @Test
+    void getAddress1() {
+        assertEquals("19 King Street", activity.getStreetAddress1(), "Street not match");
+
+    }
+
+    @Test
+    void setAddress1() {
+        activity.setStreetAddress1("3 Bridge Road");
+        assertEquals("3 Bridge Road", activity.getStreetAddress1(), "Street not match");
+    }
+
+    @Test
+    void getSetAddress2() {
+        assertEquals(null, activity.getStreetAddress2(), "Street not match");
+        activity.setStreetAddress2("RiverEdge");
+        assertEquals("RiverEdge", activity.getStreetAddress2(), "Street not match");
+    }
+
+    @Test
+    void getSetCityTest() {
+        assertEquals("Manchester", activity.getCity(), "City not match");
+        activity.setCity("Liverpool");
+        assertEquals("Liverpool", activity.getCity(), "City not match");
+    }
+
+    @Test
+    void getSetCounty() {
+        assertEquals("Greater Manchester", activity.getCounty(), "County not match");
+        activity.setCounty("Essex");
+        assertEquals("Essex", activity.getCounty(), "County not match");
+    }
+
+    @Test
+    void getSetPostcode() {
+        assertEquals("MA1 1NB", activity.getPostcode(), "Postcode not match");
+        activity.setPostcode("LN1 1JB");
+        assertEquals("LN1 1JB", activity.getPostcode(), "Postcode not match");
     }
 }

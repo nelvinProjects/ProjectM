@@ -13,24 +13,23 @@ public class Database {
 
     public static Connection dbConnection;
 
-    public void setupDB(){
-        try{
+    public void setupDB() {
+        try {
             Class.forName(JDBC_DRIVER);
             dbConnection = DriverManager.getConnection(DB_URL, USER, PASS);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void closeConnection(){
+    public void closeConnection() {
         try {
             dbConnection.close();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 
 }

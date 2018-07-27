@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.TreeSet;
 
-public class Activity {
+public class Activity extends Location {
     private int activityID;
     private int clientID;
     private String description;
@@ -15,7 +15,9 @@ public class Activity {
     private TreeSet<String> tags;
 
     public Activity(int activityID, int clientID, String description, boolean active, LocalDate date,
-                    LocalTime time, boolean advert, TreeSet tags){
+                    LocalTime time, boolean advert, TreeSet tags, String address1, String address2, String city,
+                    String county, String postcode) {
+        super(address1, address2, city, county, postcode);
         this.activityID = activityID;
         this.clientID = clientID;
         this.description = description;
