@@ -43,7 +43,7 @@ public class Review {
 //            e.printStackTrace();
 //        }
 //        max++;
-        int max = Database.getMaxID("Reviews");
+        int max = Database.getMaxID("Reviews","rID");
 
         String sql = "INSERT into Reviews (id, activityID, customerID, review) values " +
                 "(?,?,?,?)";
