@@ -2,7 +2,6 @@ package Server;
 
 import Server.Activities.ActivityDatabase;
 import Server.Activities.Review;
-import Server.Booking.Order;
 import Server.Booking.OrderDatabase;
 import Server.Company.Client;
 import Server.Company.Follow;
@@ -27,6 +26,8 @@ public class Main {
         login.createAccount("test@gmail.com", "123456", false, "Bib",
                 "Jon", LocalDate.of(1995, 05, 05), "MN1 7YP");
         System.out.println("DUPLICATE ENTRY TO CREATE ACCOUNT");
+        login.createAccount("tester@gmail.com", "123456", false, "Bob",
+                "Jones", LocalDate.of(1994, 05, 05), "MN1 7YP");
         login.createAccount("tester@gmail.com", "123456", false, "Bob",
                 "Jones", LocalDate.of(1994, 05, 05), "MN1 7YP");
         System.out.println("NEW ACCOUNTS");
@@ -78,20 +79,20 @@ public class Main {
 
         System.out.println("ADD CHAT");
         Chat chat = new Chat();
-//        chat.addChat(1,2,"Hi", 1);
-//        chat.addChat(1,2,"Hi", 2);
-//        chat.addChat(2,1,"How are you?", 2);
-//        chat.addChat(1,3,"Message test", 3);
-//        chat.addChat(3,1,"bye", 2);
+        chat.addChat(1, 2, "Hi", 1);
+        chat.addChat(1, 2, "Hi", 2);
+        chat.addChat(2, 1, "How are you?", 2);
+        chat.addChat(1, 3, "Message test", 3);
+        chat.addChat(3, 1, "bye", 2);
         System.out.println(chat.retrieveChat(1, 2));
         System.out.println(chat.retrieveChat(2, 1));
         System.out.println();
 
         System.out.println("ADD FOLLOW");
         Follow follow = new Follow();
-//        follow.addFollow(5, 1);
-//        follow.addFollow(5, 2);
-//        follow.addFollow(7, 2);
+        follow.addFollow(6, 1);
+        follow.addFollow(6, 2);
+        follow.addFollow(7, 2);
         System.out.println("RETRIEVE FOLLOW");
         System.out.println(follow.retrieveFollows(2));
         System.out.println();
@@ -106,7 +107,7 @@ public class Main {
 
         System.out.println("ADD ACTIVITY");
         ActivityDatabase activityDatabase = new ActivityDatabase();
-        activityDatabase.addActivity(5, "Go Kart", 10, "Ride Go karts", 9.99, false, true,
+        activityDatabase.addActivity(6, "Go Kart", 10, "Ride Go karts", 9.99, false, true,
                 "5 Ride UNIT", "Fast Road", "Manchester", "MN1 1NN",
                 LocalDate.of(2018, 8, 12), LocalTime.of(12, 05));
         activityDatabase.addActivity(7, "Play Handball", 20, "Play Handball", 2.99, false, true,
@@ -137,7 +138,6 @@ public class Main {
         for (String order : orderDatabase.retrieveOrders(1)) {
             System.out.println(order);
         }
-
 
         database.closeConnection();
     }
