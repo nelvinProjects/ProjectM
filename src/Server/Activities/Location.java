@@ -1,13 +1,13 @@
 package Server.Activities;
 
 public class Location {
-    private String streetAddress1, streetAddress2, city, county, postcode;
-    public Location(String streetAddress1, String streetAddress2, String city, String county,
+    private String streetAddress1, streetAddress2, city, postcode;
+
+    public Location(String streetAddress1, String streetAddress2, String city,
                     String postcode){
         this.streetAddress1 = streetAddress1;
         this.streetAddress2 = streetAddress2;
         this.city = city;
-        this.county = county;
         this.postcode = postcode;
     }
 
@@ -35,13 +35,6 @@ public class Location {
         this.city = city;
     }
 
-    public String getCounty() {
-        return county;
-    }
-
-    public void setCounty(String county) {
-        this.county = county;
-    }
 
     public String getPostcode() {
         return postcode;

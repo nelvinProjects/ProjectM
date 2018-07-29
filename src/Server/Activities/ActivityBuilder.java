@@ -11,7 +11,7 @@ public class ActivityBuilder {
     private LocalDate date;
     private LocalTime time;
     private TreeSet<String> tags;
-    private String streetAddress1, streetAddress2, city, county, postcode;
+    private String streetAddress1, streetAddress2, city, postcode;
 
     public ActivityBuilder setID(int id){
         this.activityID = id;
@@ -68,11 +68,6 @@ public class ActivityBuilder {
         return this;
     }
 
-    public ActivityBuilder county(String county){
-        this.county = county;
-        return this;
-    }
-
     public ActivityBuilder postcode(String postcode){
         this.postcode = postcode;
         return this;
@@ -85,7 +80,7 @@ public class ActivityBuilder {
 
     public Activity build(){
         return new Activity(activityID,clientID, description, active, date, time, advert, tags, quantity,
-                streetAddress1, streetAddress2, city, county, postcode);
+                streetAddress1, streetAddress2, city, postcode);
     }
 
 }

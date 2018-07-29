@@ -31,7 +31,6 @@ class ActivityTest {
                 .quantity(5)
                 .streetAddress1("19 King Street")
                 .city("Manchester")
-                .county("Greater Manchester")
                 .postcode("MA1 1NB")
                 .build();
     }
@@ -171,13 +170,6 @@ class ActivityTest {
         assertEquals("Manchester", activity.getCity(), "City not match");
         activity.setCity("Liverpool");
         assertEquals("Liverpool", activity.getCity(), "City not match");
-    }
-
-    @Test
-    void getSetCounty() {
-        assertEquals("Greater Manchester", activity.getCounty(), "County not match");
-        activity.setCounty("Essex");
-        assertEquals("Essex", activity.getCounty(), "County not match");
     }
 
     @Test

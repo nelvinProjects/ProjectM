@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`address` (
   `postcode` VARCHAR(10) NOT NULL,
   `streetName` VARCHAR(45) NULL,
   `city` VARCHAR(45) NULL,
+  `county` VARCHAR(45) NULL,
   PRIMARY KEY (`postcode`));
 
 
@@ -138,6 +139,7 @@ CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`companyMessage` (
   `customerID` int NOT NULL,
   `clientID` int NOT NULL,
   `message` VARCHAR(200) NULL,
+  `sender` int NOT NULL,
   PRIMARY KEY (`mID`),
   INDEX `fkUser_idx` (`customerID` ASC),
   INDEX `fkCompany_idx` (`clientID` ASC),
@@ -160,10 +162,12 @@ CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`companyMessage` (
 CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`activities` (
   `activityID` INT NOT NULL,
   `clientID` int NULL,
-  `descrption` VARCHAR(200) NULL,
+  `title` VARCHAR(50) NULL,
+  `description` VARCHAR(200) NULL,
   `price` DECIMAL NULL,
   `AD` TINYINT(1) NULL,
   `date` DATE NULL,
+  `time` TIME NULL,
   `active` TINYINT(1) NULL,
   `address1` varchar(20),
   `quantity` int,
@@ -225,7 +229,7 @@ CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`order` (
   `orderID` INT NOT NULL,
   `activityID` INT NULL,
   `customerID` int NULL,
-  `timeBought` DATETIME NULL,
+  `timeBought` TIMESTAMP NULL,
   PRIMARY KEY (`orderID`),
   INDEX `pkActivity_idx` (`activityID` ASC),
   INDEX `pkUser_idx` (`customerID` ASC),

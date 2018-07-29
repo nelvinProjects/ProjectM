@@ -12,10 +12,11 @@ public class Activity extends Location {
     private LocalTime time;
     private TreeSet<String> tags;
 
+    //todo add title
     public Activity(int activityID, int clientID, String description, boolean active, LocalDate date,
                     LocalTime time, boolean advert, TreeSet tags, int quantity, String address1, String address2, String city,
-                    String county, String postcode) {
-        super(address1, address2, city, county, postcode);
+                    String postcode) {
+        super(address1, address2, city, postcode);
         this.activityID = activityID;
         this.clientID = clientID;
         this.description = description;

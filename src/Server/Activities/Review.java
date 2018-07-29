@@ -5,47 +5,38 @@ import Server.Database;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Review {
 
-    public String retrieveReview(int activityID) {
+    public ArrayList<String> retrieveReview(int activityID) {
+        ArrayList<String> review = new ArrayList<>();
         String output = "";
         PreparedStatement statement;
-        String sql = "SELECT customerID, review FROM Reviews WHERE activityID = ?";
+        String sql = "SELECT customerID, reviewText FROM review WHERE activityID = ?";
         try {
             statement = Database.dbConnection.prepareStatement(sql);
             statement.setInt(1, activityID);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                output += rs.getString("customerID");
+                output += rs.getString(1);
                 output += ",";
-                output += rs.getString("review");
+                output += rs.getString(2);
+                review.add(output);
+                output = "";
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return output;
+        return review;
     }
 
     public void addReview(int activityID, int customerID, String review) {
-//        int max = 0;
         PreparedStatement statement;
-//        String getsql = "SELECT MAX(id) from Reviews";
-//        try {
-//            statement = Database.dbConnection.prepareStatement(getsql);
-//            ResultSet rs = statement.executeQuery();
-//            while (rs.next()) max = rs.getInt(1);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        max++;
-        int max = Database.getMaxID("Reviews","rID");
-
-        String sql = "INSERT into Reviews (id, activityID, customerID, review) values " +
+        int max = Database.getMaxID("review", "rID");
+        String sql = "INSERT INTO review (rID, activityID, customerID, reviewText) VALUES " +
                 "(?,?,?,?)";
         try {
             statement = Database.dbConnection.prepareStatement(sql);
@@ -53,13 +44,11 @@ public class Review {
             statement.setInt(2, activityID);
             statement.setInt(3, customerID);
             statement.setString(4, review);
-
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
