@@ -42,8 +42,13 @@ public class Friend {
                     "(?,?)";
             try {
                 statement = Database.dbConnection.prepareStatement(sql);
-                statement.setInt(1, customerID1);
-                statement.setInt(2, customerID2);
+                if (customerID1 < customerID2){
+                    statement.setInt(1, customerID1);
+                    statement.setInt(2, customerID2);
+                }else {
+                    statement.setInt(1, customerID1);
+                    statement.setInt(2, customerID2);
+                }
                 statement.execute();
             } catch (SQLException e) {
                 e.printStackTrace();

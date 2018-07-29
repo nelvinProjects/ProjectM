@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`customer` (
   `customerID` int NOT NULL,
   `fName` VARCHAR(45) NOT NULL,
   `sName` VARCHAR(45) NULL,
+  `dOb` DATE,
   `postcode` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`customerID`),
   CONSTRAINT `fkcustomerID`
@@ -81,6 +82,7 @@ CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`chat` (
   `customerIDO` int NOT NULL,
   `customerIDT` int NOT NULL,
   `message` VARCHAR(300) NULL,
+  `sender` int NOT NULL,
   PRIMARY KEY (`chatID`),
   INDEX `fkUserOne_idx` (`customerIDO` ASC, `customerIDT` ASC),
   CONSTRAINT `fkChatUserOne`
