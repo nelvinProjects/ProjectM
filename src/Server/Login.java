@@ -78,7 +78,7 @@ public class Login {
             while (rs.next()) {
                 count++;
             }
-            System.out.println("COUNT " + count);
+            System.out.println("Account COUNT " + count);
             if (count > 0) return false;
             else return true;
         } catch (SQLException e) {
