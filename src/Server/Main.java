@@ -70,6 +70,7 @@ public class Main {
         friend.addFriends(1, 2);
         System.out.println("FEW FRIENDS");
         friend.addFriends(1, 3);
+        friend.addFriends(3, 2);
         friend.addFriends(3, 4);
         System.out.println();
 

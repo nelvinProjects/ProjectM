@@ -35,7 +35,6 @@ CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`address` (
   `postcode` VARCHAR(10) NOT NULL,
   `streetName` VARCHAR(45) NULL,
   `city` VARCHAR(45) NULL,
-  `county` VARCHAR(45) NULL,
   PRIMARY KEY (`postcode`));
 
 

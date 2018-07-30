@@ -25,6 +25,7 @@ public class Review {
                 review.add(output);
                 output = "";
             }
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -66,6 +67,7 @@ public class Review {
             while (rs.next()) {
                 count++;
             }
+            rs.close();
             if (count > 0) return false;
             else return true;
         } catch (SQLException e) {

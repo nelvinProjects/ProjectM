@@ -29,6 +29,7 @@ public class Chat {
                 chats += "|" + rs.getInt(2);
                 count++;
             }
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {

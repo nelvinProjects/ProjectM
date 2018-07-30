@@ -24,6 +24,7 @@ public class OrderDatabase {
                 order.add(eachOrder);
                 eachOrder = "";
             }
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {

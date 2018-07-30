@@ -23,6 +23,7 @@ public class Follow {
                 follows += comma + rs.getInt(1);
                 count++;
             }
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -59,6 +60,7 @@ public class Follow {
             ResultSet rs = statement.executeQuery();
             int count = 0;
             while (rs.next()) count++;
+            rs.close();
             if (count > 0) return false;
             else return true;
         } catch (SQLException e) {

@@ -32,6 +32,7 @@ public class Database {
 //                System.out.println(rs.getInt(1));
                 max = rs.getInt(1);
             }
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {

@@ -27,6 +27,7 @@ public class Friend {
                 }
                 count++;
             }
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -46,8 +47,8 @@ public class Friend {
                     statement.setInt(1, customerID1);
                     statement.setInt(2, customerID2);
                 }else {
-                    statement.setInt(1, customerID1);
-                    statement.setInt(2, customerID2);
+                    statement.setInt(1, customerID2);
+                    statement.setInt(2, customerID1);
                 }
                 statement.execute();
             } catch (SQLException e) {
@@ -70,6 +71,7 @@ public class Friend {
             while (rs.next()) {
                 count++;
             }
+            rs.close();
             System.out.println("Friend COUNT " + count);
             if (count > 0) return false;
             else return true;

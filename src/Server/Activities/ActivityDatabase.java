@@ -12,7 +12,7 @@ public class ActivityDatabase {
         ArrayList<String> act = new ArrayList<>();
         String activity = "";
         Statement statement;
-        String sql = "SELECT * FROM activities;";
+        String sql = "SELECT * FROM activities INNER JOIN address ON activities.postcode = address.postcode;";
         try {
             statement = Database.dbConnection.createStatement();
             ResultSet rs = statement.executeQuery(sql);
@@ -29,9 +29,13 @@ public class ActivityDatabase {
                 activity += "," + rs.getString(10);
                 activity += "," + rs.getInt(11);
                 activity += "," + rs.getString(12);
+                activity += "," + rs.getString(14);
+                activity += "," + rs.getString(15);
+                activity += "," + rs.getString(16);
                 act.add(activity);
                 activity = "";
             }
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -93,6 +97,7 @@ public class ActivityDatabase {
             while (rs.next()) {
                 count++;
             }
+            rs.close();
             if (count > 0) return false;
             else return true;
         } catch (SQLException e) {
@@ -114,6 +119,7 @@ public class ActivityDatabase {
             while (rs.next()) {
                 count++;
             }
+            rs.close();
             if (count > 0) return false;
             else return true;
         } catch (SQLException e) {

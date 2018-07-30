@@ -25,6 +25,7 @@ public class Messages {
                 message += "|" + rs.getInt(2);
                 count++;
             }
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {

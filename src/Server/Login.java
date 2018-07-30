@@ -22,8 +22,8 @@ public class Login {
             while (rs.next()) {
                 id = rs.getInt(1);
                 seller = rs.getBoolean(2);
-//                values[0] = String.valueOf(id);
             }
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -55,6 +55,7 @@ public class Login {
                 details[2] = String.valueOf(rs.getDate(4));
                 details[3] = rs.getString(5);
             }
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -76,6 +77,7 @@ public class Login {
                 details[1] = rs.getString(2);
                 details[2] = rs.getString(3);
             }
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -158,6 +160,7 @@ public class Login {
             while (rs.next()) {
                 count++;
             }
+            rs.close();
             System.out.println("Account COUNT " + count);
             if (count > 0) return false;
             else return true;
