@@ -9,6 +9,48 @@ body {
     margin-right: auto;
 }
 
-/** {*/
-/*box-sizing: border-box;*/
-/*}*/
+/*Main Navigation bar*/
+#navigationBar {
+    background: lightslategray;
+}
+
+/*Logo button*/
+#navLogoButton {
+    font-size: 20px;
+    margin: auto;
+    display: compact;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/*Main navigation login button*/
+#navLoginButton {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+#navLoginButton li {
+    display: inline;
+    float: right;
+}
+
+#navLoginButton li a {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+}
+
+/*Index enter postcode div*/
+#indexPostcodeBox {
+    background-color: steelblue;
+    height: 100%;
+}
+
+/*Footer*/
+#footerDiv {
+    background-color: lightgray;
+}
