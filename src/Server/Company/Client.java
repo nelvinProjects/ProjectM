@@ -3,7 +3,7 @@ package Server.Company;
 public class Client {
     private int clientID;
     private String name, postcode;
-
+    //TODO: remove postcode
     public Client(int clientID, String name, String postcode) {
         this.clientID = clientID;
         this.name = name;

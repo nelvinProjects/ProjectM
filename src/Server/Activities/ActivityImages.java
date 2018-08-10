@@ -11,6 +11,7 @@ import java.sql.SQLException;
 public class ActivityImages {
 
     //TODO: BLOB output --> To image in webpage
+    //todo public img?
     public OutputStream retrieveImages(int activityID){
         Blob output = null;
         PreparedStatement statement;

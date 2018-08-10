@@ -62,32 +62,32 @@ public class Main {
         Client client = new Client(Integer.valueOf(clientData[0]), clientData[1], clientData[2]);
         System.out.println("CLIENT ID " + client.getClientID() + " CLIENT NAME " + client.getName());
 
-        System.out.println();
-        System.out.println("ADD FRIEND");
-        Friend friend = new Friend();
-        friend.addFriends(1, 2);
-        System.out.println("DUPLICATE FRIEND ENTRY");
-        friend.addFriends(1, 2);
-        System.out.println("FEW FRIENDS");
-        friend.addFriends(1, 3);
-        friend.addFriends(3, 2);
-        friend.addFriends(3, 4);
-        System.out.println();
-
-        System.out.println("RETRIEVE FRIEND");
-        System.out.println(friend.retrieveFriends(1));
-        System.out.println();
-
-        System.out.println("ADD CHAT");
-        Chat chat = new Chat();
-        chat.addChat(1, 2, "Hi", 1);
-        chat.addChat(1, 2, "Hi", 2);
-        chat.addChat(2, 1, "How are you?", 2);
-        chat.addChat(1, 3, "Message test", 3);
-        chat.addChat(3, 1, "bye", 2);
-        System.out.println(chat.retrieveChat(1, 2));
-        System.out.println(chat.retrieveChat(2, 1));
-        System.out.println();
+//        System.out.println();
+//        System.out.println("ADD FRIEND");
+//        Friend friend = new Friend();
+//        friend.addFriends(1, 2);
+//        System.out.println("DUPLICATE FRIEND ENTRY");
+//        friend.addFriends(1, 2);
+//        System.out.println("FEW FRIENDS");
+//        friend.addFriends(1, 3);
+//        friend.addFriends(3, 2);
+//        friend.addFriends(3, 4);
+//        System.out.println();
+//
+//        System.out.println("RETRIEVE FRIEND");
+//        System.out.println(friend.retrieveFriends(1));
+//        System.out.println();
+//
+//        System.out.println("ADD CHAT");
+//        Chat chat = new Chat();
+//        chat.addChat(1, 2, "Hi", 1);
+//        chat.addChat(1, 2, "Hi", 2);
+//        chat.addChat(2, 1, "How are you?", 2);
+//        chat.addChat(1, 3, "Message test", 3);
+//        chat.addChat(3, 1, "bye", 2);
+//        System.out.println(chat.retrieveChat(1, 2));
+//        System.out.println(chat.retrieveChat(2, 1));
+//        System.out.println();
 
         System.out.println("ADD FOLLOW");
         Follow follow = new Follow();

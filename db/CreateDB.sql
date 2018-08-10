@@ -38,14 +38,12 @@ CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`address` (
   PRIMARY KEY (`postcode`));
 
 
-
 -- -----------------------------------------------------
 -- Table `ActivitiesDB`.`company`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`company` (
   `clientID` int NOT NULL,
   `name` VARCHAR(45) NOT NULL,
-  `postcode` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`clientID`),
   CONSTRAINT `fkClientcustomerID`
     FOREIGN KEY (`clientID`)

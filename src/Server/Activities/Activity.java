@@ -12,7 +12,7 @@ public class Activity extends Location {
     private LocalTime time;
     private TreeSet<String> tags;
 
-    //todo add title
+    //todo add age
     public Activity(int activityID, int clientID, String description, boolean active, LocalDate date,
                     LocalTime time, boolean advert, TreeSet tags, int quantity, String address1, String address2, String city,
                     String postcode) {
