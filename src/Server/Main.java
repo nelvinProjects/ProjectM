@@ -6,9 +6,7 @@ import Server.Booking.OrderDatabase;
 import Server.Company.Client;
 import Server.Company.Follow;
 import Server.Company.Messages;
-import Server.User.Chat;
 import Server.User.Customer;
-import Server.User.Friend;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

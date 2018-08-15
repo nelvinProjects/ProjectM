@@ -1,48 +1,71 @@
-html {
-    background-color: whitesmoke;
-}
+/*html {*/
+/*background-color: whitesmoke;*/
+/*}*/
 
 body {
-    background-color: #FFFFFF;
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: whitesmoke;
+    /*width: 95%;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
 }
+
+/*.centerDiv{*/
+/*!*width: 100%;*!*/
+/*!*margin-left: auto;*!*/
+/*margin: auto;*/
+/*width: 50%;*/
+/*border: 3px solid green;*/
+/*}*/
 
 /*Main Navigation bar*/
-#navigationBar {
-    background: lightslategray;
-}
+/*.navigationBar {*/
+/*background: lightslategray;*/
+/*!*display: grid;*!*/
+/*!*grid-column-gap: 100px;*!*/
+/*!*grid-template-columns: auto auto auto auto auto;*!*/
+/*}*/
 
+/*body > div.centerDiv > nav > form:nth-child(1) {*/
+/*grid-column-start: 2;*/
+/*!*grid-column-end: span 3;*!*/
+/*}*/
+
+/*body > nav > form:nth-child(2) > button{*/
+/*grid-column-start: -2;*/
+/*}*/
+/*body > nav > form:nth-child(3) > button{*/
+/*grid-column-start: -1;*/
+/*}*/
 /*Logo button*/
-#navLogoButton {
-    font-size: 20px;
+.navLogoButton {
+    font-size: 15px;
     margin: auto;
-    display: compact;
+    /*display: compact;*/
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
+    /*grid-column-start: 2;*/
 }
 
-/*Main navigation login button*/
-#navLoginButton {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+/*!*Main navigation login button*!*/
+/*.navLoginButton {*/
+/*list-style-type: none;*/
+/*margin: 0;*/
+/*padding: 0;*/
+/*}*/
 
-}
+/*#navLoginButton li {*/
+/*display: inline;*/
+/*margin-top: -3%;*/
+/*float: right;*/
+/*}*/
 
-#navLoginButton li {
-    display: inline;
-    float: right;
-}
-
-#navLoginButton li a {
-    color: red;
-    text-align: center;
-    font-size: 14px;
-}
+/*#navLoginButton li a {*/
+/*color: red;*/
+/*text-align: center;*/
+/*font-size: 14px;*/
+/*}*/
 
 /*Index enter postcode div*/
 #indexPostcodeBox {
