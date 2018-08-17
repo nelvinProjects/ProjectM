@@ -32,6 +32,11 @@ body {
     /*resize-height: 50%;*/
 }
 
+/*Index input uppercase*/
+#indexPostcodeInput{
+	text-transform: uppercase;
+}
+
 /*Homepage image*/
 #collectionImages {
     height: 40%;

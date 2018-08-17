@@ -2,10 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activities around you|ManchesterActive</title>
+    <script>
+    var requestURL = 'http://localhost:8080/ProjectM/active/index/postcode';
+    var request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+    request.send();
+    request.onload = function () {
+        var reply = request.response;
+        console.log(reply);
+        document.getElementById("printPostcode").innerHTML = reply;
+    }
+    </script>
 </head>
 <body>
 <!--template:
@@ -31,7 +43,7 @@ https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_social&sta
     <!--https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_vertical_fixed-->
 </div>
 <div>
-    <h3>Activities near [postcode] within [radius] miles;</h3>
+    <h3>Activities near </h3><h3 id="printPostcode"></h3> <h3>within [radius] miles;</h3>
     -+-+-+-+ Activities scroll here -+-+-+-+
 </div>
 </body>
