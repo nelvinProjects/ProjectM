@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create account|ManchesterActive</title>
+    <script src="js/main.js"></script>
 </head>
 <body>
 <div class="w3-bar w3-border w3-light-grey ">
@@ -22,42 +23,42 @@
     <div class="w3-container w3-purple">
         <h2>Create account</h2>
     </div>
-    <form>
-        <!--<h4>Enter email address:</h4>-->
+    <form action="active/register" method="post">
+        <label>Full name:</label>
+        <input type="text" name="fullname" id="fullname" class="w3-input" placeholder="Enter full name">
+        <br>
+        <br>
         <label>Email address:</label>
-        <input type="email" class="w3-input" placeholder="Enter email">
+        <input type="email" name="email" id="email" class="w3-input" placeholder="Enter email">
         <br>
         <br>
-        <!--<h4>Enter date of birth:</h4>-->
         <label>Date of birth:</label>
-        <input class="w3-input" type="date">
+        <input class="w3-input" name="dob" type="date">
         <br>
         <br>
-        <!--<h4>Enter postcode:</h4>-->
         <label>Postcode:</label>
-        <input type="text" class="w3-input" placeholder="Enter postcode">
+        <input type="text" name="postcode" class="w3-input" placeholder="Enter postcode">
         <br>
         <br>
-        <!--<h4>Enter password:</h4>-->
         <label>Password:</label>
-        <input type="password" class="w3-input" placeholder="Enter password">
+        <input type="password" name="password" class="w3-input" placeholder="Enter password">
 
         <h4>Preferences:</h4>
-        <label><input type="checkbox" value="Cycling"> Cycling</label>
-        <label><input type="checkbox" value="Dancing"> Dancing</label>
-        <label><input type="checkbox" value="Archery"> Archery</label>
-        <label><input type="checkbox" value="Martial"> Martial arts</label>
-        <label><input type="checkbox" value="Fishing"> Fishing</label>
-        <label> <input type="checkbox" value="Racket"> Racket sports</label>
-        <!--<br>-->
-        <label> <input type="checkbox" value="Swimming"> Swimming</label>
-        <label> <input type="checkbox" value="Running"> Running</label>
-        <label> <input type="checkbox" value="Racing"> Racing</label>
-        <label> <input type="checkbox" value="Drone"> Drones</label>
-        <label> <input type="checkbox" value="Air"> Air sports</label>
-        <label> <input type="checkbox" value="Team"> Team sports</label>
+        <label><input type="checkbox" name="preference" value="Cycling"> Cycling</label>
+        <label><input type="checkbox" name="preference" value="Dancing"> Dancing</label>
+        <label><input type="checkbox" name="preference" value="Archery"> Archery</label>
+        <label><input type="checkbox" name="preference" value="Martial"> Martial arts</label>
+        <label><input type="checkbox" name="preference" value="Fishing"> Fishing</label>
+        <label> <input type="checkbox" name="preference" value="Racket"> Racket sports</label>
         <br>
-        <button class="w3-button w3-border">Register</button>
+        <label> <input type="checkbox" name="preference" value="Swimming"> Swimming</label>
+        <label> <input type="checkbox" name="preference" value="Running"> Running</label>
+        <label> <input type="checkbox" name="preference" value="Racing"> Racing</label>
+        <label> <input type="checkbox" name="preference" value="Drone"> Drones</label>
+        <label> <input type="checkbox" name="preference" value="Air"> Air sports</label>
+        <label> <input type="checkbox" name="preference" value="Team"> Team sports</label>
+        <br>
+        <button class="w3-button w3-border" onclick="register()">Register</button>
     </form>
 </div>
 </body>
