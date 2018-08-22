@@ -5,18 +5,18 @@ import java.time.LocalTime;
 import java.util.TreeSet;
 
 public class Activity extends Location {
-    private int activityID, clientID, quantity;
-    private String description;
+    private int activityID, clientID, quantity, age;
+    private String description, title;
     private boolean active, advert;
     private LocalDate date;
     private LocalTime time;
-    private TreeSet<String> tags;
+//    private TreeSet<String> tags;
 
-    //todo add age
-    public Activity(int activityID, int clientID, String description, boolean active, LocalDate date,
-                    LocalTime time, boolean advert, TreeSet tags, int quantity, String address1, String address2, String city,
-                    String postcode) {
+    public Activity(int activityID, int clientID, String title, String description, boolean active, LocalDate date,
+                    LocalTime time, boolean advert, int quantity, String address1, String address2, String city,
+                    String postcode, int age) {
         super(address1, address2, city, postcode);
+        this.title = title;
         this.activityID = activityID;
         this.clientID = clientID;
         this.description = description;
@@ -24,17 +24,25 @@ public class Activity extends Location {
         this.date = date;
         this.time = time;
         this.advert = advert;
-        this.tags = tags;
         this.quantity = quantity;
+        this.age = age;
 
     }
 
     public int getActivityID() {
         return activityID;
     }
+    
+    public int getAge() {
+    	return age;
+    }
 
     public void setActivityID(int activityID) {
         this.activityID = activityID;
+    }
+    
+    public void setAge(int age) {
+    	this.age = age;
     }
 
     public int getClientID() {
@@ -48,9 +56,17 @@ public class Activity extends Location {
     public String getDescription() {
         return description;
     }
+    
+    public String getTitle() {
+    	return title;
+    }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    
+    public void setTitle(String title) {
+    	this.title = title;
     }
 
     public boolean isActive() {
@@ -83,14 +99,6 @@ public class Activity extends Location {
 
     public void setAdvert(boolean advert) {
         this.advert = advert;
-    }
-
-    public TreeSet<String> getTags() {
-        return tags;
-    }
-
-    public void setTags(TreeSet<String> tags) {
-        this.tags = tags;
     }
 
     public int getQuantity() {

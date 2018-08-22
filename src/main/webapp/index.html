@@ -1,60 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<link href="css/style.css" rel="stylesheet">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Find activity near you|ManchesterActivities</title>
-<meta name="description" content="Gateway to more active life">
-<script>
-    	//window.onload=function() {
-    	//  document.getElementById("findActivity").onclick=function() {
-    	//    window.location.replace("activity.html");
-    	//    return false;
-    	//  }
-    //	}
-    </script>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find activity near you|ManchesterActivities</title>
+    <meta name="description" content="Gateway to more active life">
 </head>
 <body>
 
-	<div class="w3-bar w3-border w3-light-grey ">
-		<div class="w3-bar w3-white w3-padding w3-card">
-			<a href="index.html"
-				class="w3-bar-item w3-button w3-light-gray navLogoButton">𝓜𝓪𝓷𝓬𝓱𝓮𝓼𝓽𝓮𝓻𝓐𝓬𝓽𝓲𝓿𝓲𝓽𝓲𝓮𝓼</a>
+<div class="w3-bar w3-border w3-light-grey ">
+    <div class="w3-bar w3-white w3-padding w3-card">
+        <a href="index.html"
+           class="w3-bar-item w3-button w3-light-gray navLogoButton">𝓜𝓪𝓷𝓬𝓱𝓮𝓼𝓽𝓮𝓻𝓐𝓬𝓽𝓲𝓿𝓲𝓽𝓲𝓮𝓼</a>
 
-			<div class="w3-right">
-				<a href="about.html" class="w3-bar-item w3-button">About</a> <a
-					href="login.html" class="w3-bar-item w3-button">Login</a> <a
-					href="register.html" class="w3-bar-item w3-button">Register</a>
-			</div>
-		</div>
-	</div>
+        <div class="w3-right">
+            <a href="about.html" class="w3-bar-item w3-button">About</a> <a
+                href="login.html" class="w3-bar-item w3-button">Login</a> <a
+                href="register.html" class="w3-bar-item w3-button">Register</a>
+        </div>
+    </div>
+</div>
 
 
-	<div id="indexPostcodeBox">
-		<!--<img id="collectionImages" class="w3-image" src="../images/home.PNG" alt="collection">-->
-		<div class="w3-display-middle w3-white w3-center" style="width: 30%">
-	<form id="finder" action="active/index/indexPostcode" method="get">
-				<p>
-					<b>Enter your postcode:</b>
-				</p>
-				<input id="indexPostcodeInput" name="indexPost" type="text"
-					class="w3-round w3-border" size="12" maxlength="8"
-					placeholder="Enter Postcode"> <br> <br>
-				<button id="findActivity"
-					class="w3-button w3-grey w3-hover-purple w3-round-xlarge"
-					type="submit">Find activity</button>
-			</form>
-		</div>
-	</div>
+<div id="indexPostcodeBox">
+    <!--<img id="collectionImages" class="w3-image" src="../images/home.PNG" alt="collection">-->
+    <div class="w3-display-middle w3-white w3-center" style="width: 30%">
+        <form id="finder" action="active/index/indexPostcode" method="get">
+            <p>
+                <b>Enter your postcode:</b>
+            </p>
+            <input id="indexPostcodeInput" name="indexPost" type="text"
+                   class="w3-round w3-border" size="12" maxlength="8"
+                   placeholder="Enter Postcode"> <br> <br>
+            <button id="findActivity"
+                    class="w3-button w3-grey w3-hover-purple w3-round-xlarge"
+                    type="submit">Find activity
+            </button>
+        </form>
+    </div>
+</div>
 
-	<div class="w3-container w3-border w3-center">
-		<h3>Who are we?</h3>
-		<p id="printhere">
-			<b></b>
-		</p>
-		<script>
+<div class="w3-container w3-border w3-center">
+    <h3>Who are we?</h3>
+    <p id="printhere">
+        <b></b>
+    </p>
+    <script>
         var requestURL = 'http://localhost:8080/ProjectM/active/index/print';
         var request = new XMLHttpRequest();
         request.open('GET', requestURL);
@@ -62,31 +55,28 @@
         request.send();
         request.onload = function () {
             var reply = request.response;
-            console.log(reply);
-            // var sentance = document.createElement("P");
-            // var text = document.createTextNode(reply);
             document.getElementById("printhere").innerHTML = reply;
         }
     </script>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-			do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-			enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-			ut aliquip ex ea commodo consequat.</p>
-		<h3>Want to add activities?</h3>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-			do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-			enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-			ut aliquip ex ea commodo consequat.</p>
-		<a href="provider.html">Client</a>
-	</div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+        enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+        ut aliquip ex ea commodo consequat.</p>
+    <h3>Want to add activities?</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+        enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+        ut aliquip ex ea commodo consequat.</p>
+    <a href="provider.html">Client</a>
+</div>
 </body>
 <footer id="footerDiv">
-	<p>ManchesterActivities Ltd</p>
-	<p>Contact info: yetToDecide@qa.com</p>
-	<p>
-		Social media: <img class="socialMedia" src="images/fb.png"> <img
-			class="socialMedia" src="images/twitter.png"> <img
-			class="socialMedia" src="images/instagram.png">
-	</p>
+    <p>ManchesterActivities Ltd</p>
+    <p>Contact info: yetToDecide@qa.com</p>
+    <p>
+        Social media: <img class="socialMedia" src="images/fb.png"> <img
+            class="socialMedia" src="images/twitter.png"> <img
+            class="socialMedia" src="images/instagram.png">
+    </p>
 </footer>
 </html>

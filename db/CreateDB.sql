@@ -7,7 +7,7 @@ USE `ActivitiesDB` ;
 CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`login` (
   `customerID` int NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
   `seller` BOOLEAN,
   PRIMARY KEY (`customerID`));
 
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`login` (
 CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`customer` (
   `customerID` int NOT NULL,
   `fName` VARCHAR(45) NOT NULL,
-  `sName` VARCHAR(45) NULL,
+  `sName` VARCHAR(45) NOT NULL,
   `dOb` DATE,
   `postcode` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`customerID`),
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`company` (
 -- -----------------------------------------------------
 -- Table `ActivitiesDB`.`friend`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`friend` (
+/*CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`friend` (
   `customerIDO` int NOT NULL,
   `customerIDT` int NOT NULL,
   PRIMARY KEY (`customerIDO`, `customerIDT`),
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`userImages` (
     FOREIGN KEY (`customerID`)
     REFERENCES `ActivitiesDB`.`customer` (`customerID`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON UPDATE NO ACTION);*/
 
 
 
@@ -162,6 +162,7 @@ CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`activities` (
   `title` VARCHAR(50) NULL,
   `description` VARCHAR(200) NULL,
   `price` DECIMAL NULL,
+  `age` int NULL,
   `AD` TINYINT(1) NULL,
   `date` DATE NULL,
   `time` TIME NULL,
@@ -191,7 +192,7 @@ CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`activities` (
 CREATE TABLE IF NOT EXISTS `ActivitiesDB`.`activityImages` (
   `actImgID` INT NOT NULL,
   `activityID` INT NULL,
-  `image` BLOB(100) NULL,
+  `image` longblob NULL,
   PRIMARY KEY (`actImgID`),
   INDEX `fkCompany_idx` (`activityID` ASC),
   CONSTRAINT `fkActivityImgCompany`

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Activity|ManchesterActivities</title>
+</head>
+<body>
+<div class="w3-bar w3-top w3-border w3-light-grey ">
+    <div class="w3-bar w3-white w3-padding w3-card">
+        <a href="index.html" class="w3-bar-item w3-button navLogoButton">𝓜𝓪𝓷𝓬𝓱𝓮𝓼𝓽𝓮𝓻𝓐𝓬𝓽𝓲𝓿𝓲𝓽𝓲𝓮𝓼</a>
+
+        <div class="w3-right">
+            <a href="client.html" class="w3-bar-item w3-button">Your account</a>
+            <a href="index.html" onclick="logout()" class="w3-bar-item w3-button">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div class="w3-display-middle w3-white w3-center" style="width:50%;margin-top:12%">
+    <div class="w3-container w3-purple">
+        <h2>Add activity</h2>
+    </div>
+    <form id="addActivity">
+        <label>Title:</label>
+        <input type="text" name="title" class="w3-input" placeholder="Enter title">
+        <br>
+        <label>Description:</label>
+        <textarea name="description" rows="5" maxlength="500" class="w3-input" placeholder="Enter description">
+        </textarea>
+        <br>
+        <label>Price:</label>
+        <input type="number" name="price" class="w3-input" step="any" maxlength="6" placeholder="Enter price per person: £">
+        <br>
+        <label>Minimum age required:</label>
+        <input class="w3-input" name="age" type="number" placeholder="Enter age">
+        <br>
+        <label>Advertise</label>
+        <select class="w3-select" name="advertise">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <br>
+        <label>Date:</label>
+        <input class="w3-input" name="actdate" type="date">
+        <br>
+        <label>Time:</label>
+        <input class="w3-input" name="acttime" type="time" placeholder="Enter time in 24 hour format">
+        <br>
+        <label>Quantity available:</label>
+        <input class="w3-input" name="quantity" type="number" placeholder="Enter quantity available">
+        <br>
+        <label>Address 1:</label>
+        <input class="w3-input" name="address1" type="text" placeholder="Enter address 1">
+        <br>
+        <label>Street name:</label>
+        <input class="w3-input" name="street" type="text" placeholder="Enter street name">
+        <br>
+        <label>City:</label>
+        <input class="w3-input" name="city" type="text" placeholder="Enter city">
+        <br>
+        <label>Postcode:</label>
+        <input type="text" name="postcode" class="w3-input" placeholder="Enter postcode">
+        <br>
+        <br>
+        <button class="w3-button w3-border">Register</button>
+    </form>
+</div>
+</body>
+</html>

@@ -28,16 +28,17 @@ public class ActivityDatabase {
                 activity += "," + rs.getString(3);
                 activity += "," + rs.getString(4);
                 activity += "," + rs.getDouble(5);
-                activity += "," + rs.getBoolean(6);
-                activity += "," + rs.getDate(7);
-                activity += "," + rs.getTime(8);
-                activity += "," + rs.getBoolean(9);
-                activity += "," + rs.getString(10);
-                activity += "," + rs.getInt(11);
-                activity += "," + rs.getString(12);
-                activity += "," + rs.getString(14);
+                activity += "," + rs.getInt(6);
+                activity += "," + rs.getBoolean(7);
+                activity += "," + rs.getDate(8);
+                activity += "," + rs.getTime(9);
+                activity += "," + rs.getBoolean(10);
+                activity += "," + rs.getString(11);
+                activity += "," + rs.getInt(12);
+                activity += "," + rs.getString(13);
                 activity += "," + rs.getString(15);
                 activity += "," + rs.getString(16);
+                activity += "," + rs.getString(17);
                 act.add(activity);
                 activity = "";
             }
@@ -50,13 +51,13 @@ public class ActivityDatabase {
         return act;
     }
 
-    public void addActivity(int clientID, String title, int quantity, String description, double price, boolean AD,
+    public void addActivity(Integer clientID, String title, int quantity, int age, String description, double price, boolean AD,
                             boolean active, String address1, String address2, String city,
-                            String postcode, LocalDate date, LocalTime time) {
+                            String postcode, Date date, Time time) {
         if (checkActivityExist(clientID, title)) {
             PreparedStatement statement = null;
             String sql = "INSERT INTO activities (activityID, clientID, title, description,price," +
-                    "AD, date, time, active, address1, quantity, postcode) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                    "age, AD, date, time, active, address1, quantity, postcode) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
             try {
                 if (checkAddressExist(postcode)) {
                     String sqlTwo = "INSERT INTO address(postcode, streetName, city) VALUES (?,?,?);";
@@ -74,13 +75,14 @@ public class ActivityDatabase {
                 statement.setString(3, title);
                 statement.setString(4, description);
                 statement.setDouble(5, price);
-                statement.setBoolean(6, AD);
-                statement.setDate(7, Date.valueOf(date));
-                statement.setTime(8, Time.valueOf(time));
-                statement.setBoolean(9, active);
-                statement.setString(10, address1);
-                statement.setInt(11, quantity);
-                statement.setString(12, postcode);
+                statement.setInt(6, age);
+                statement.setBoolean(7, AD);
+                statement.setDate(8, date);
+                statement.setTime(9, time);
+                statement.setBoolean(10, active);
+                statement.setString(11, address1);
+                statement.setInt(12, quantity);
+                statement.setString(13, postcode);
 
                 statement.execute();
             } catch (SQLException e) {

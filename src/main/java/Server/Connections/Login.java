@@ -4,24 +4,25 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
+
+import org.mindrot.jbcrypt.BCrypt;
 
 public class Login {
-    //    TODO: if seller redirect to client page
     public String[] checkAccountDetails(String username, String password) {
         int id = 0;
+        String passwordValue = "";
         boolean seller = false;
-        String[] values = new String[4];
+        String[] values = new String[2];
         PreparedStatement statement = null;
-        String sql = "SELECT customerID, seller FROM login WHERE email = ? && password = ?;";
+        String sql = "SELECT customerID, seller, password FROM login WHERE email = ?;";
         try {
             statement = Database.dbConnection.prepareStatement(sql);
             statement.setString(1, username.toLowerCase());
-            statement.setString(2, password);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 id = rs.getInt(1);
                 seller = rs.getBoolean(2);
+                passwordValue = rs.getString(3);
             }
             rs.close();
         } catch (SQLException e) {
@@ -29,13 +30,14 @@ public class Login {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (seller) {
-            values = getClientDetails(id);
-        } else {
-            values = getCustomerDetails(id);
-//            values = Stream.of(customerDetails).flatMap(Stream::of).toArray(String[]::new);
-        }
-        return values;
+        if (BCrypt.checkpw(password, passwordValue)) {
+			values[0] = String.valueOf(id);
+        	values[1] = String.valueOf(seller);
+        	return values;
+		}else {
+			String[] empty = new String[0];
+			return empty;
+		}       
     }
 
     public String[] getCustomerDetails(int id) {
@@ -87,7 +89,7 @@ public class Login {
     }
 
     public void createAccount(String email, String password, boolean client, String fname,
-                              String sName, LocalDate dob, String postcode) {
+                              String sName, Date dob, String postcode) {
         if (checkAccountExist(email)) {
             PreparedStatement statement = null;
             String sql = "INSERT into login (customerID, email, password, seller) values " +
@@ -101,7 +103,7 @@ public class Login {
                 statement.setBoolean(4, client);
                 statement.execute();
                 if (client) {
-                    createClient(id, fname, postcode);
+                    createClient(id, fname);
                 } else {
                     createCustomer(id, fname, sName, dob, postcode);
                 }
@@ -113,16 +115,16 @@ public class Login {
         }
     }
 
-    public void createCustomer(int id, String fname, String sname, LocalDate dob, String postcode) {
+    public void createCustomer(int id, String fname, String sname, Date dob, String postcode) {
         PreparedStatement statement = null;
-        String sql = "INSERT into customer (customerID, fName, sName, dOb, postcode) values " +
+        String sql = "INSERT into customer (customerID, fame, sname, dOb, postcode) values " +
                 "(?,?,?,?,?)";
         try {
             statement = Database.dbConnection.prepareStatement(sql);
             statement.setInt(1, id);
             statement.setString(2, fname);
             statement.setString(3, sname);
-            statement.setDate(4, Date.valueOf(dob));
+            statement.setDate(4, dob);
             statement.setString(5, postcode.toUpperCase());
             statement.execute();
         } catch (SQLException e) {
@@ -132,15 +134,14 @@ public class Login {
         }
     }
 
-    public void createClient(int id, String name, String postcode) {
+    public void createClient(int id, String name) {
         PreparedStatement statement = null;
-        String sql = "INSERT into company (clientID, name, postcode) values " +
-                "(?,?,?)";
+        String sql = "INSERT into company (clientID, name) values " +
+                "(?,?)";
         try {
             statement = Database.dbConnection.prepareStatement(sql);
             statement.setInt(1, id);
             statement.setString(2, name);
-            statement.setString(3, postcode.toUpperCase());
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();

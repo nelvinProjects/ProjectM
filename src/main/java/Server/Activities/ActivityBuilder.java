@@ -5,17 +5,23 @@ import java.time.LocalTime;
 import java.util.TreeSet;
 
 public class ActivityBuilder {
-    private int activityID, clientID, quantity;
-    private String description = "Yet to be added :(";
+    private int activityID, clientID, quantity, age;
+    private String description = "Yet to be added U+1F61E";
+    private String title;
     private boolean active, advert;
     private LocalDate date;
     private LocalTime time;
-    private TreeSet<String> tags;
+//    private TreeSet<String> tags;
     private String streetAddress1, streetAddress2, city, postcode;
 
     public ActivityBuilder setID(int id){
         this.activityID = id;
         return this;
+    }
+    
+    public ActivityBuilder setAge(int age){
+    	this.age = age;
+    	return this;
     }
 
     public ActivityBuilder setClient(int clientID){
@@ -26,6 +32,11 @@ public class ActivityBuilder {
     public ActivityBuilder activityDesc(String description){
         this.description = description;
         return this;
+    }
+    
+    public ActivityBuilder title(String title){
+    	this.title = title;
+    	return this;
     }
 
     public ActivityBuilder activityLive(boolean active){
@@ -40,11 +51,6 @@ public class ActivityBuilder {
 
     public ActivityBuilder time(LocalTime time){
         this.time = time;
-        return this;
-    }
-
-    public ActivityBuilder preferences(TreeSet tags){
-        this.tags = tags;
         return this;
     }
 
@@ -79,8 +85,7 @@ public class ActivityBuilder {
     }
 
     public Activity build(){
-        return new Activity(activityID,clientID, description, active, date, time, advert, tags, quantity,
-                streetAddress1, streetAddress2, city, postcode);
+        return new Activity(activityID,clientID, title, description, active, date, time, advert, quantity,
+                streetAddress1, streetAddress2, city, postcode, age);
     }
-
 }

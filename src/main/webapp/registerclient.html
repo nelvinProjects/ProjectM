@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Provider|ManchesterActivities</title>
@@ -23,15 +25,17 @@
     <div class="w3-container w3-purple">
         <h2>Register provider</h2>
     </div>
-    <form>
+    <form action="active/register/client" method="post">
         <label>Enter company name:</label>
-        <input type="text" class="w3-input" placeholder="Enter company name">
-        <label>Email address:</label>
-        <input type="email" class="w3-input" placeholder="Enter email address">
-        <label>Password:</label>
-        <input type="password" class="w3-input" placeholder="Enter password">
+        <input type="text" name="cname" class="w3-input" placeholder="Enter company name">
         <br>
-        <button class="w3-button w3-border">Create</button>
+        <label>Email address:</label>
+        <input type="email" name="email" class="w3-input" placeholder="Enter email address">
+        <br>
+        <label>Password:</label>
+        <input type="password" name="password" class="w3-input" placeholder="Enter password">
+        <br>
+        <button class="w3-button w3-border" onclick="register()">Create</button>
     </form>
 </div>
 </body>

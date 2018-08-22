@@ -5,14 +5,13 @@ import java.util.TreeSet;
 public class Customer {
     int customerID, age;
     String name, postcode;
-    TreeSet<String> preferences;
+//    TreeSet<String> preferences;
 
-    public Customer(int customerID, int age, String name, String postcode, TreeSet preferences){
+    public Customer(int customerID, int age, String name, String postcode){
         this.customerID = customerID;
         this.name = name;
         this.age = age;
         this.postcode = postcode;
-        this.preferences = preferences;
     }
 
     public int getCustomerID() {
@@ -45,13 +44,5 @@ public class Customer {
 
     public void setPostcode(String postcode) {
         this.postcode = postcode;
-    }
-
-    public TreeSet<String> getPreferences() {
-        return preferences;
-    }
-
-    public void setPreferences(TreeSet<String> preferences) {
-        this.preferences = preferences;
     }
 }

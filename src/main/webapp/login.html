@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login to your account at ManchesterActivities</title>
@@ -22,14 +24,15 @@
     <div class="w3-container w3-purple">
         <h2>Login</h2>
     </div>
-    <form>
+    <!--<form action="active/process/login" method="post">-->
+    <form id="loginForm">
         <label>Email:</label>
-        <input type="email" class="w3-input" placeholder="Enter email address">
-        <br>
+        <input type="email" name="email" class="w3-input" placeholder="Enter email address">
         <br>
         <label>Password:</label>
-        <input type="password" class="w3-input" placeholder="Enter password">
+        <input type="password" name="password" class="w3-input" placeholder="Enter password">
         <br>
+        <p id="loginResponse" class="w3-red"></p>
         <br>
         <button class="w3-button w3-border">Login</button>
     </form>
