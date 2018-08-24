@@ -1,7 +1,5 @@
 package Server.User;
 
-import java.util.TreeSet;
-
 public class Customer {
     int customerID, age;
     String name, postcode;

@@ -1,5 +1,8 @@
 package Server.Activities;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Blob;
 import java.sql.PreparedStatement;
@@ -31,9 +34,27 @@ public class ActivityImages {
         return null;
     }
 
+    
 
     //TODO: Upload image into database --> image data to blob
-    public void addImages(){
+    public void addImages(int activityID, InputStream img){
+    	PreparedStatement statement = null;
+		String sql = "INSERT INTO activityimages (actImgID, activityID, image) values("
+				+ "?,?,?);";
+		try {
+			statement = Database.dbConnection.prepareStatement(sql);
+			int id = Database.getMaxID("activityimages", "actImgID");
+			statement = Database.dbConnection.prepareStatement(sql);
+			statement.setInt(1, id);
+			statement.setInt(2, activityID);
+			if (img !=  null) {
+//				InputStream binImg = new BufferedReader(new FileInputStream(img))
+				statement.setBinaryStream(3, img);
+				statement.execute();
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 
     }
 }

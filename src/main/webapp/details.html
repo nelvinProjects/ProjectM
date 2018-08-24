@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/details.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Details|ManchesterActivities</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="w3-bar w3-border w3-light-grey ">
+    <div class="w3-bar w3-white w3-padding w3-card">
+        <a href="index.html" class="w3-bar-item w3-button navLogoButton">𝓜𝓪𝓷𝓬𝓱𝓮𝓼𝓽𝓮𝓻𝓐𝓬𝓽𝓲𝓿𝓲𝓽𝓲𝓮𝓼</a>
+
+        <div class="w3-right">
+            <a href="about.html" class="w3-bar-item w3-button">About</a>
+            <a href="login.html" class="w3-bar-item w3-button">Login</a>
+            <a href="register.html" class="w3-bar-item w3-button">Register</a>
+        </div>
+    </div>
+</div>
+
+<div class="w3-content w3-center w3-margin-top" style="max-width:1400px; height: 100%">
+
+    <!-- The Grid -->
+    <div class="w3-row-padding" style="height: 100%;">
+
+        <!-- Left Column -->
+        <div class="w3-third w3-left">
+
+            <div class="w3-white w3-text-grey w3-card-4">
+                <div class="w3-display-container">
+                    <img src="images/temp.jpg" style="width:100%" alt="activity">
+                    <div class="w3-display-bottomleft w3-container w3-text-black">
+                        <h2 class="w3-text-purple">Jane Doe</h2>
+                    </div>
+                </div>
+                <div class="w3-container">
+                    <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Designer</p>
+                    <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>London, UK</p>
+                    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>ex@mail.com</p>
+                </div>
+            </div>
+        </div>
+
+        <!--Main description box-->
+        <div class="w3-twothird  w3-right">
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <h2 class="w3-text-grey w3-padding-16"><i
+                        class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+                <div class="w3-container">
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span
+                            class="w3-tag w3-teal w3-round">Current</span></h6>
+                    <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est
+                        reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure,
+                        iste.</p>
+                    <hr>
+                    <button class="w3-right">Buy</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-twothird w3-right" style="height: 100%">
+            <div class="w3-container w3-card w3-white w3-margin-bottom" style="height: 70%">
+                <p>Direction to .....</p>
+                <div id="map"  style="height: 90%; width: 100%"></div>
+                <script>
+                    var map;
+
+                    function initMap() {
+                        var directionsService = new google.maps.DirectionsService();
+                        var directionsDisplay = new google.maps.DirectionsRenderer();
+                        var mapOptions = {
+                            zoom: 7
+                        };
+                        var request = {
+                            origin: "M50 3YJ",
+                            destination: "M30 0GX",
+                            travelMode: 'DRIVING'
+                        };
+                        directionsService.route(request, function (result, status) {
+                            if (status == 'OK') {
+                                directionsDisplay.setDirections(result);
+                            }
+                        });
+                        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+                        directionsDisplay.setMap(map);
+                    }
+                </script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDat1VsRU9kMI2h5k_g0jBVq5ctezyMvRA&callback=initMap"
+                        async defer></script>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,13 +1,10 @@
-// let bnkcook;
-//
-// function setCookie(id) {
-//     document.cookie = "userID=" + id;
-//     bnkcook = document.cookie;
-//     console.log(bnkcook);
-//     console.log(document.cookie);
-// }
-//
-// console.log(setCookie(123));
+$(document).ready(function () {
+    $("#finder").submit(function (event) {
+        sessionStorage.postcode = $("#indexPostcodeInput").val();
+        window.location.replace("activity.html");
+    })
+});
+
 
 function register() {
     setTimeout(function () {
@@ -49,11 +46,14 @@ $(document).ready(function () {
             value: sessionStorage.userid
         }).appendTo(this);
         $.post("active/activity/addactivity",
-            $(this).serialize())
-    })
+            $(this).serialize());
+
+        setTimeout(function () {
+            $(location).attr("href", "client.html");
+        }, 400);
+    });
 });
 
 function logout() {
     sessionStorage.clear();
-    // window.location.replace("index.html");
 }

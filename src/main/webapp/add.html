@@ -30,20 +30,22 @@
         <input type="text" name="title" class="w3-input" placeholder="Enter title">
         <br>
         <label>Description:</label>
-        <textarea name="description" rows="5" maxlength="500" class="w3-input" placeholder="Enter description">
-        </textarea>
+        <textarea name="description" rows="5" maxlength="500" class="w3-input"
+                  placeholder="Enter description"></textarea>
         <br>
         <label>Price:</label>
-        <input type="number" name="price" class="w3-input" step="any" maxlength="6" placeholder="Enter price per person: £">
+        <input type="number" name="price" class="w3-input" step="any" maxlength="6"
+               placeholder="Enter price per person: £">
         <br>
-        <label>Minimum age required:</label>
+        <label>Minimum age requirement:</label>
         <input class="w3-input" name="age" type="number" placeholder="Enter age">
         <br>
         <label>Advertise</label>
         <select class="w3-select" name="advertise">
-            <option value="1">Yes</option>
-            <option value="0">No</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
         </select>
+        <br>
         <br>
         <label>Date:</label>
         <input class="w3-input" name="actdate" type="date">
@@ -65,6 +67,12 @@
         <br>
         <label>Postcode:</label>
         <input type="text" name="postcode" class="w3-input" placeholder="Enter postcode">
+        <br>
+        <label>Add image:</label>
+        <!--<form method="POST" action="getdata.php" enctype="multipart/form-data">-->
+        <input type="file" name="myimage" multiple accept='image/*' class="w3-center">
+        <!--<input type="submit" name="submit_image" value="Upload">-->
+        <!--</form>-->
         <br>
         <br>
         <button class="w3-button w3-border">Register</button>

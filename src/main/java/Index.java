@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 public class Index {
 	private Gson gson = new Gson();
 
-	public static String postcode = "";
+//	public static String postcode = "";
 		
 	@GET
 	@Produces("Application/json")
@@ -25,8 +25,8 @@ public class Index {
 	@GET
 	@Path("/indexPostcode")
 	public Response getPostcode(@QueryParam("indexPost") String post) {
-		postcode = post.toUpperCase();
-		System.out.println(postcode);
+//		postcode = post.toUpperCase();
+//		System.out.println(postcode);
 		try {
 			return Response.temporaryRedirect(new URI("../activity.html")).build();
 		} catch (URISyntaxException e) {
@@ -37,12 +37,12 @@ public class Index {
 		return null;
 	} 
 		
-	@GET
-	@Produces("Application/json")
-	@Path("/postcode")
-	public String printPostcode() {
-		System.out.println(postcode);
-		return gson.toJson(postcode);
-	}
+//	@GET
+//	@Produces("Application/json")
+//	@Path("/postcode")
+//	public String printPostcode() {
+////		System.out.println(postcode);
+////		return gson.toJson(postcode);
+//	}
 	
 }

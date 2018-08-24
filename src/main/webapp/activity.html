@@ -4,21 +4,10 @@
     <meta charset="UTF-8">
     <link href="css/style.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/activityProcess.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activities around you|ManchesterActive</title>
-    <script>
-    var requestURL = 'http://localhost:8080/ProjectM/active/index/postcode';
-    var request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-    request.responseType = 'json';
-    request.send();
-    request.onload = function () {
-        var reply = request.response;
-        console.log(reply);
-        document.getElementById("printPostcode").innerHTML = reply;
-    }
-    </script>
+    <title>Activities around you|ManchesterActivities</title>
 </head>
 <body>
 <!--template:
@@ -27,7 +16,7 @@ https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_apartment_
 https://www.w3schools.com/w3css/tryw3css_templates_social.htm
 https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_social&stacked=h
 -->
-<div class="w3-bar w3-border w3-light-grey ">
+<div class="w3-bar w3-top w3-border w3-light-grey ">
     <div class="w3-bar w3-white w3-padding w3-card">
         <a href="index.html" class="w3-bar-item w3-button navLogoButton">𝓜𝓪𝓷𝓬𝓱𝓮𝓼𝓽𝓮𝓻𝓐𝓬𝓽𝓲𝓿𝓲𝓽𝓲𝓮𝓼</a>
 
@@ -39,13 +28,11 @@ https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_social&sta
     </div>
 </div>
 
-<div id="activitySidebar">
-    sidebar here
-    <!--https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_vertical_fixed-->
-</div>
-<div>
-    <h3>Activities near </h3><h3 id="printPostcode"></h3> <h3>within [radius] miles;</h3>
-    -+-+-+-+ Activities scroll here -+-+-+-+
-</div>
+<!--<div id="activitySidebar">-->
+    <!--sidebar here-->
+    <!--&lt;!&ndash;https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_vertical_fixed&ndash;&gt;-->
+<!--</div>-->
+<div id="headingPostcode" class="w3-center w3-xlarge w3-animate-bottom" style="margin-top: 60px"></div>
+<div id="mainBox" class="w3-container w3-display-middle w3-border w3-center" style="width: 70%;margin-top:110px"></div>
 </body>
 </html>

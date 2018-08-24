@@ -10,11 +10,12 @@ public class Activity extends Location {
     private boolean active, advert;
     private LocalDate date;
     private LocalTime time;
+    private double price, distance;
 //    private TreeSet<String> tags;
 
     public Activity(int activityID, int clientID, String title, String description, boolean active, LocalDate date,
                     LocalTime time, boolean advert, int quantity, String address1, String address2, String city,
-                    String postcode, int age) {
+                    String postcode, int age, double price, double distance) {
         super(address1, address2, city, postcode);
         this.title = title;
         this.activityID = activityID;
@@ -26,7 +27,16 @@ public class Activity extends Location {
         this.advert = advert;
         this.quantity = quantity;
         this.age = age;
-
+        this.price = price;
+        this.distance = distance;
+    }
+    
+    public double getDistance() {
+    	return distance;
+    }
+    
+    public void setDistance(double distance) {
+    	this.distance = distance;
     }
 
     public int getActivityID() {
@@ -36,6 +46,10 @@ public class Activity extends Location {
     public int getAge() {
     	return age;
     }
+    
+    public double getPrice() {
+    	return price;
+    }
 
     public void setActivityID(int activityID) {
         this.activityID = activityID;
@@ -43,6 +57,10 @@ public class Activity extends Location {
     
     public void setAge(int age) {
     	this.age = age;
+    }
+    
+    public void setPrice(double price) {
+    	this.price = price;
     }
 
     public int getClientID() {

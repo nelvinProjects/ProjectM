@@ -162,7 +162,7 @@ public class Login {
                 count++;
             }
             rs.close();
-            System.out.println("Account COUNT " + count);
+//            System.out.println("Account COUNT " + count);
             if (count > 0) return false;
             else return true;
         } catch (SQLException e) {
