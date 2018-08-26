@@ -19,11 +19,11 @@ public class Register {
 	public void addUser(@FormParam("fname") String fname, @FormParam("sname") String sname,
 			@FormParam("email") String email, @FormParam("dob") Date dob, @FormParam("postcode") String postcode,
 			@FormParam("password") String password) {
-		String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
+		String hash = BCrypt.hashpw(password.trim(), BCrypt.gensalt(12));
 		Database database = new Database();
 		database.setupDB();
 		Login login = new Login();
-		login.createAccount(email, hash, false, fname, sname, dob, postcode);
+		login.createAccount(email.trim(), hash, false, fname.trim(), sname.trim(), dob, postcode.trim());
 		database.closeConnection();
 	}
 
@@ -32,11 +32,11 @@ public class Register {
 	@Path("/client")
 	public void addClient(@FormParam("cname") String cname, @FormParam("email") String email,
 			@FormParam("password") String password) {
-		String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
+		String hash = BCrypt.hashpw(password.trim(), BCrypt.gensalt(12));
 		Database database = new Database();
 		database.setupDB();
 		Login login = new Login();
-		login.createAccount(email, hash, true, cname, "", null, "");
+		login.createAccount(email.trim(), hash, true, cname.trim(), "", null, "");
 		database.closeConnection();
 	}
 

@@ -5,6 +5,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import com.google.gson.Gson;
@@ -29,4 +30,12 @@ public class Process {
 		return gson.toJson(value);
 	}
 
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/clientName")
+	public String retrieveClientName(@QueryParam("clientid") int id) {
+		Gson gson = new Gson();
+		Login login = new Login();
+		return gson.toJson(login.getClientDetails(id));
+	}
 }

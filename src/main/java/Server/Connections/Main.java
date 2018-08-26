@@ -1,10 +1,32 @@
 package Server.Connections;
 
+import java.sql.Date;
+import java.util.ArrayList;
+
+import Server.Activities.Activity;
+
 public class Main {
     public static void main(String[] args) {
         Database database = new Database();
         database.setupDB();
-//
+        
+        Activity activity = new Activity(1, 9, "TEST", "bl bla", true, null, null, true, 15,
+        		"5 street", "no to", "manchester", "mn1 9tt", 18, 9.99, 3.12);
+
+        Activity activity2 = new Activity(2, 8, "TEST1", "bl bla", true, null, null, true, 15,
+        		"5 street", "no to", "manchester", "mn1 9tt", 18, 9.99, 3.12);
+        Activity activity3 = new Activity(3, 7, "TEST", "bl bla", true, null, null, true, 15,
+        		"5 street", "no to", "manchester", "mn1 9tt", 18, 9.99, 3.12);
+        ArrayList<Activity> activities = new ArrayList<>();
+        activities.add(activity);
+        activities.add(activity2);
+        activities.add(activity3);
+        
+        for(int i =0; 0 < activities.size(); i++) {
+        	System.out.println(activities.get(i).getActivityID());
+        }
+        
+        
 //        System.out.println("CREATING ACCOUNT");
 //        Login login = new Login();
 //        login.createAccount("test@gmail.com", "123456", false, "Bib",

@@ -40,13 +40,15 @@
                 <div class="w3-display-container">
                     <img src="images/temp.jpg" style="width:100%" alt="activity">
                     <div class="w3-display-bottomleft w3-container w3-text-black">
-                        <h2 class="w3-text-purple">Jane Doe</h2>
+                        <h2 id="detailsCompany" class="w3-text-purple"></h2>
                     </div>
                 </div>
                 <div class="w3-container">
-                    <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Designer</p>
-                    <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>London, UK</p>
-                    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>ex@mail.com</p>
+                    <p><i id="detailsDistance" class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
+                    <p><i id="detailsPrice" class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
+                    <p><i id="detailsDate" class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
+                    <p><i id="detailsTime" class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
+                    <p><i id="detailsAge" class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
                 </div>
             </div>
         </div>
@@ -54,23 +56,21 @@
         <!--Main description box-->
         <div class="w3-twothird  w3-right">
             <div class="w3-container w3-card w3-white w3-margin-bottom">
-                <h2 class="w3-text-grey w3-padding-16"><i
-                        class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
-                <div class="w3-container">
-                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span
-                            class="w3-tag w3-teal w3-round">Current</span></h6>
-                    <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est
-                        reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure,
-                        iste.</p>
+                <h2 id="detailsTitle" class="w3-text-grey w3-padding-16">
+                    <!--<i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>-->
+                </h2>
+                    <div class="w3-container">
+                    <h6 id="detailsAddress" class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i></h6>
+                    <p id="detailsDescription"></p>
                     <hr>
-                    <button class="w3-right">Buy</button>
+                    <button id="detailsID" class="w3-right">Buy</button>
                 </div>
             </div>
         </div>
 
         <div class="w3-twothird w3-right" style="height: 100%">
             <div class="w3-container w3-card w3-white w3-margin-bottom" style="height: 70%">
-                <p>Direction to .....</p>
+                <p id="directioTo"></p>
                 <div id="map"  style="height: 90%; width: 100%"></div>
                 <script>
                     var map;
@@ -82,8 +82,8 @@
                             zoom: 7
                         };
                         var request = {
-                            origin: "M50 3YJ",
-                            destination: "M30 0GX",
+                            origin: sessionStorage.postcode,
+                            destination: sessionStorage.tempPostcode,
                             travelMode: 'DRIVING'
                         };
                         directionsService.route(request, function (result, status) {

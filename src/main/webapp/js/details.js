@@ -1,41 +1,32 @@
-// $(document).ready(function () {
-    // let map;
-    // map = new google.maps.Map(document.getElementById('map'), {
-    //     center: {lat: -34.397, lng: 150.644},
-    //     zoom: 8
-    // });
-    // map = new google.maps.Map(document.getElementById("map"), {...});
-    // let map = new google.maps.Map(document.getElementById("map"), {
-    //     center: {lat: -34.397, lng: 150.644},
-    //     zoom: 8
-    // });
+$(document).ready(function () {
+    // console.log(sessionStorage.tempActivity);
+    var cid;
+    $.get("active/activity/specificActivities?idchosen=" + sessionStorage.tempActivity, function (data, status) {
+        // for (var i =0; i< data.length;i++){
+        //     if (data[i].activityID == sessionStorage.tempActivity){
+        console.log(data);
+        cid = data.clientID;
+        sessionStorage.tempPostcode = data.postcode;
+        $("#detailsTitle").html(data.title);
+        $("#directioTo").html("Direction to " + data.postcode);
+        $("#detailsDate").html(data.date);
+        $("#detailsDistance").html(data.distance);
+        $("#detailsPrice").html(data.price);
+        $("#detailsTime").html(data.time);
+        $("#detailsAge").html(data.age);
+        $("#detailsDescription").html(data.description);
+        $("#detailsAddress").html(data.streetAddress1 + " "+ data.streetAddress2 + " "+ data.city+
+        " "+ data.postcode);
 
-    // let directionsService = new google.maps.DirectionsService();
-    // let directionsDisplay = new google.maps.DirectionsRenderer();
-    // var map = new google.maps.Map(document.getElementById('map'), {
-    //     zoom: 14,
-    //     center: {lat: 37.77, lng: -122.447}
-    // });
-    // directionsDisplay.setMap(map);
-// });
+        // break;
+        // }
+        // }
+    });
+    $.get("active/process/clientName?clientid=" + cid, function (data, status) {
+        console.log(data);
+        $("#detailsCompany").html(data.clientID);
+    });
 
-// var map;
-// function initMap() {
-//     var directionsService = new google.maps.DirectionsService();
-//     var directionsDisplay = new google.maps.DirectionsRenderer();
-//     var mapOptions = {
-//         zoom:7,
-//     };
-//     var request = {
-//         origin: "M50 3YJ",
-//         destination: "M30 0GX",
-//         travelMode: 'DRIVING'
-//     };
-//     directionsService.route(request, function(result, status) {
-//         if (status == 'OK') {
-//             directionsDisplay.setDirections(result);
-//         }
-//     });
-//     map = new google.maps.Map(document.getElementById('maphere'), mapOptions);
-//     directionsDisplay.setMap(map);
-// }
+});
+
+//TODO set id to buy button

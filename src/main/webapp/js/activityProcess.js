@@ -5,9 +5,8 @@ $(document).ready(function () {
     }
     $.get("active/activity/allActivities?postcodegiven=" + sessionStorage.postcode, function (data, status) {
         activityList = data;
-        sessionStorage.activities = data;
         document.getElementById("headingPostcode").innerHTML = "Activities close to " + sessionStorage.postcode;
-
+        console.log(data);
         for (let i = 0; i < data.length; i++) {
             let breakElem = document.createElement("BR");
 
@@ -19,6 +18,7 @@ $(document).ready(function () {
             header.setAttribute("class", "w3-left");
 
             let headerText = document.createTextNode(activityList[i].title);
+
             header.appendChild(headerText);
             contain.appendChild(header);
             let numbers = document.createElement("div");

@@ -57,9 +57,9 @@ public class GMaps {
 ////		System.out.println(BCrypt.checkpw("password", hash));
 ////		System.out.println(BCrypt.checkpw("password", hash2));
 ////		System.out.println(BCrypt.checkpw("password", hash3));
-//		Database database = new Database();
-//		database.setupDB();
-//		ActivityDatabase aDatabase = new ActivityDatabase();
+		Database database = new Database();
+		database.setupDB();
+		ActivityDatabase aDatabase = new ActivityDatabase();
 //		List<Activity> values = aDatabase.retrieveActivity();
 //////		values.forEach((k, v) -> System.out.println(k + ":" + v.getActivityID() + v.getTitle()));
 ////		TreeMap<Integer, Activity> distanced = gMaps.distanceFromPostcode("M50 3YJ", values);
@@ -90,6 +90,8 @@ public class GMaps {
 		for(Activity each : sortedEveryActivity) {
 			System.out.println(each.getDistance() + "  "+ each.getTitle());
 		}
+		
+		System.out.println(aDatabase.retrieveSpecificActivity(2).getTitle());
 	
 	}
 	
