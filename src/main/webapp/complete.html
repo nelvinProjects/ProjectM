@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <link href="css/style.css" rel="stylesheet">
+    <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+    <title>Order Complete|ManchesterActivities</title>
+    <script src="js/order.js"></script>
     <script src="js/control.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Provider|ManchesterActivities</title>
 </head>
 <body>
 <div class="w3-bar w3-border w3-light-grey ">
@@ -17,20 +18,24 @@
 
         <div class="w3-right">
             <a href="activity.html" class="w3-bar-item w3-button">Activities</a>
+            <a href="user.html" class="w3-bar-item w3-button">Your account</a>
             <a href="index.html" onclick="logout()" class="w3-bar-item w3-button">Logout</a>
         </div>
     </div>
 </div>
 
-<div class="w3-content w3-center w3-margin-top w3-border w3-padding" style="width: 40%">
-    <h2>Welcome</h2>
-    <hr>
-    <h3>Add activity</h3>
-    <a href="add.html" class="w3-button w3-deep-purple">New activity</a>
-    <h3>Activities offered</h3>
-    <a href="activitiesOffered.html" class="w3-button w3-deep-purple">Activities</a>
-    <h3>Orders</h3>
-    <a href="clientOrders.html" class="w3-button w3-deep-purple">Orders</a>
+<div class="w3-content w3-center w3-margin-top" style="max-width:50%; height: 100%">
+    <div class="w3-container w3-card w3-white">
+        <h3><i class="far fa-check-circle"></i>Order Complete</h3>
+        <h4>Order details:</h4>
+        <h3 id="payTitle"></h3>
+        <p id="payAddress"></p>
+        <h4 id="payPrice"></h4>
+        <p id="payQuantity">Quantity 1</p>
+        <p><b>Make sure to add date and time to calender:</b></p>
+        <p id="payDateTime"></p>
+        <button onclick="moveToActivites()" class="w3-button">Check out other activities</button>
+    </div>
 </div>
 </body>
 </html>

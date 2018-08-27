@@ -67,7 +67,7 @@ public class Login {
     }
 
     public String[] getClientDetails(int id) {
-        String[] details = new String[3];
+        String[] details = new String[2];
         details[0] = String.valueOf(id);
         PreparedStatement statement = null;
         String sql = "SELECT * FROM company WHERE clientID = ?;";
@@ -77,7 +77,6 @@ public class Login {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 details[1] = rs.getString(2);
-                details[2] = rs.getString(3);
             }
             rs.close();
         } catch (SQLException e) {
@@ -117,7 +116,7 @@ public class Login {
 
     public void createCustomer(int id, String fname, String sname, Date dob, String postcode) {
         PreparedStatement statement = null;
-        String sql = "INSERT into customer (customerID, fame, sname, dOb, postcode) values " +
+        String sql = "INSERT into customer (customerID, fName, sName, dOb, postcode) values " +
                 "(?,?,?,?,?)";
         try {
             statement = Database.dbConnection.prepareStatement(sql);
@@ -162,7 +161,6 @@ public class Login {
                 count++;
             }
             rs.close();
-//            System.out.println("Account COUNT " + count);
             if (count > 0) return false;
             else return true;
         } catch (SQLException e) {

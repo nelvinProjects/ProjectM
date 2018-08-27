@@ -30,7 +30,12 @@ $(document).ready(function () {
                     } else {
                         sessionStorage.userid = id[0];
                         sessionStorage.client = id[1];
-                        $(location).attr("href", "user.html");
+                        if (sessionStorage.redirectLogin) {
+                            $(location).attr("href", "details.html");
+                        } else {
+                            $(location).attr("href", "user.html");
+                        }
+
                     }
                 }
             });
@@ -54,6 +59,3 @@ $(document).ready(function () {
     });
 });
 
-function logout() {
-    sessionStorage.clear();
-}

@@ -5,6 +5,7 @@
     <link href="css/style.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/control.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find activity near you|ManchesterActivities</title>
@@ -19,8 +20,10 @@
 
         <div class="w3-right">
             <a href="about.html" class="w3-bar-item w3-button">About</a>
-            <a href="login.html" class="w3-bar-item w3-button">Login</a>
-            <a href="register.html" class="w3-bar-item w3-button">Register</a>
+            <a href="login.html" class="mainButton w3-bar-item w3-button">Login</a>
+            <a href="register.html" class="mainButton w3-bar-item w3-button">Register</a>
+            <a href="user.html" class="mainUser w3-bar-item w3-button">Your account</a>
+            <a href="index.html" onclick="logout()" class="mainUser w3-bar-item w3-button">Logout</a>
         </div>
     </div>
 </div>
@@ -33,7 +36,7 @@
             <p>
                 <b>Enter your postcode:</b>
             </p>
-            <input id="indexPostcodeInput" name="indexPost" type="text"
+            <input id="indexPostcodeInput" required name="indexPost" type="text"
                    class="w3-round w3-border" size="12" maxlength="8"
                    placeholder="Enter Postcode"> <br> <br>
             <button id="findActivity"
@@ -46,20 +49,6 @@
 
 <div class="w3-container w3-border w3-center">
     <h3>Who are we?</h3>
-    <p id="printhere">
-        <b></b>
-    </p>
-    <script>
-        var requestURL = 'http://localhost:8080/ProjectM/active/index/print';
-        var request = new XMLHttpRequest();
-        request.open('GET', requestURL);
-        request.responseType = 'json';
-        request.send();
-        request.onload = function () {
-            var reply = request.response;
-            document.getElementById("printhere").innerHTML = reply;
-        }
-    </script>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
         do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
         enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi

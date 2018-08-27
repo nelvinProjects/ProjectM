@@ -5,6 +5,7 @@
     <link href="css/style.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/details.js"></script>
+    <script src="js/control.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,9 +22,12 @@
         <a href="index.html" class="w3-bar-item w3-button navLogoButton">𝓜𝓪𝓷𝓬𝓱𝓮𝓼𝓽𝓮𝓻𝓐𝓬𝓽𝓲𝓿𝓲𝓽𝓲𝓮𝓼</a>
 
         <div class="w3-right">
-            <a href="about.html" class="w3-bar-item w3-button">About</a>
-            <a href="login.html" class="w3-bar-item w3-button">Login</a>
-            <a href="register.html" class="w3-bar-item w3-button">Register</a>
+            <a href="about.html" class="mainButton w3-bar-item w3-button w3-light-gray">About</a>
+            <a href="login.html" class="mainButton w3-bar-item w3-button">Login</a>
+            <a href="register.html" class="mainButton w3-bar-item w3-button">Register</a>
+            <a href="activity.html" class="w3-bar-item w3-button">Activities</a>
+            <a href="user.html" class="mainUser w3-bar-item w3-button">Your account</a>
+            <a href="index.html" onclick="logout()" class="mainUser w3-bar-item w3-button">Logout</a>
         </div>
     </div>
 </div>
@@ -44,11 +48,12 @@
                     </div>
                 </div>
                 <div class="w3-container">
-                    <p><i id="detailsDistance" class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
-                    <p><i id="detailsPrice" class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
-                    <p><i id="detailsDate" class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
-                    <p><i id="detailsTime" class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
-                    <p><i id="detailsAge" class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
+                    <p><i id="detailsDistance" class="fas fa-car w3-center w3-large w3-text-indigo"></i></p>
+                    <p><i id="detailsPrice" class="w3-center w3-large w3-text-indigo"></i></p>
+                    <p><i id="detailsDate" class="fas fa-calendar-alt w3-margin-right w3-large"></i></p>
+                    <p><i id="detailsTime" class="far fa-clock w3-margin-right w3-large"></i></p>
+                    <p><i id="detailsAge" class="fas fa-birthday-cake fa-fw w3-margin-right w3-large"></i></p>
+                    <p><i id="detailsQuantity" class="w3-text-red w3-margin-right w3-large"></i></p>
                 </div>
             </div>
         </div>
@@ -56,14 +61,14 @@
         <!--Main description box-->
         <div class="w3-twothird  w3-right">
             <div class="w3-container w3-card w3-white w3-margin-bottom">
-                <h2 id="detailsTitle" class="w3-text-grey w3-padding-16">
-                    <!--<i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>-->
+                <h2 id="detailsTitle" class="w3-text-dark-gray w3-padding-16">
                 </h2>
-                    <div class="w3-container">
-                    <h6 id="detailsAddress" class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i></h6>
+                <div class="w3-container">
+                    <h5 class="w3-text-deep-purple"><i id="detailsAddress"
+                                                       class="fas fa-map-marker-alt w3-margin-right"></i></h5>
                     <p id="detailsDescription"></p>
                     <hr>
-                    <button id="detailsID" class="w3-right">Buy</button>
+                    <div id="detailsBuy"></div>
                 </div>
             </div>
         </div>
@@ -71,7 +76,7 @@
         <div class="w3-twothird w3-right" style="height: 100%">
             <div class="w3-container w3-card w3-white w3-margin-bottom" style="height: 70%">
                 <p id="directioTo"></p>
-                <div id="map"  style="height: 90%; width: 100%"></div>
+                <div id="map" style="height: 90%; width: 100%"></div>
                 <script>
                     var map;
 

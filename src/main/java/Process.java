@@ -1,4 +1,6 @@
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -11,6 +13,8 @@ import javax.ws.rs.core.MediaType;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import Server.Activities.Activity;
+import Server.Booking.OrderDatabase;
 import Server.Connections.Database;
 import Server.Connections.Login;
 
@@ -37,5 +41,17 @@ public class Process {
 		Gson gson = new Gson();
 		Login login = new Login();
 		return gson.toJson(login.getClientDetails(id));
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_FORM_URLENCODED)
+	@Path("/userorders")
+	public String getUserOrders(@QueryParam("clientid") int id) {
+		Gson gson = new Gson();
+		Database database = new Database();
+		database.setupDB();
+		OrderDatabase orderDatabase = new OrderDatabase();
+		List<Activity> orders = ;
+		return gson.toJson(orderDatabase.retrieveOrders(id));
 	}
 }

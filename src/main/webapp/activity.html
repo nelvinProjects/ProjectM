@@ -5,34 +5,29 @@
     <link href="css/style.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/activityProcess.js"></script>
+    <script src="js/control.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activities around you|ManchesterActivities</title>
 </head>
 <body>
-<!--template:
-sidebar: https://www.w3schools.com/w3css/tryw3css_templates_apartment_rental.htm
-https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_apartment_rental&stacked=h
-https://www.w3schools.com/w3css/tryw3css_templates_social.htm
-https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_social&stacked=h
--->
 <div class="w3-bar w3-border w3-light-grey ">
     <div class="w3-bar w3-white w3-padding w3-card">
         <a href="index.html" class="w3-bar-item w3-button navLogoButton">𝓜𝓪𝓷𝓬𝓱𝓮𝓼𝓽𝓮𝓻𝓐𝓬𝓽𝓲𝓿𝓲𝓽𝓲𝓮𝓼</a>
 
         <div class="w3-right">
-            <a href="about.html" class="w3-bar-item w3-button">About</a>
-            <a href="login.html" class="w3-bar-item w3-button">Login</a>
-            <a href="register.html" class="w3-bar-item w3-button">Register</a>
+            <a href="about.html" class="mainButton w3-bar-item w3-button w3-light-gray">About</a>
+            <a href="login.html" class="mainButton w3-bar-item w3-button">Login</a>
+            <a href="register.html" class="mainButton w3-bar-item w3-button">Register</a>
+            <a href="user.html" class="mainUser w3-bar-item w3-button">Your account</a>
+            <a href="index.html" onclick="logout()" class="mainUser w3-bar-item w3-button">Logout</a>
         </div>
     </div>
 </div>
-
 <!--<div id="activitySidebar">-->
 <!--sidebar here-->
 <!--&lt;!&ndash;https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_vertical_fixed&ndash;&gt;-->
 <!--</div>-->
-<!--<div class="w3-container w3-content">-->
 <div class="w3-container w3-border w3-content w3-center" style=" width: 70%">
     <div id="headingPostcode" class="w3-xlarge w3-animate-bottom"></div>
     <div id="mainBox"></div>

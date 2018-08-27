@@ -42,10 +42,14 @@ public class ActivityProcess {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/specificActivities")
-	public String retrieveActivitiesFromID(@QueryParam("idchosen") int id) {
+	public String retrieveActivitiesFromID(@QueryParam("idchosen") int id, @QueryParam("postcode")
+	String postcode) {
 		Gson gson = new Gson();
+		GMaps gMaps = new GMaps();
 		ActivityDatabase activityDatabase = new ActivityDatabase();
-		return gson.toJson(activityDatabase.retrieveSpecificActivity(id));
+		Activity specific = activityDatabase.retrieveSpecificActivity(id);
+		specific.setDistance(gMaps.getDistance(specific.getPostcode(), postcode));
+		return gson.toJson(specific);
 	}
 	
 	@GET
@@ -60,32 +64,6 @@ public class ActivityProcess {
 		GMaps gMaps = new GMaps();
 		gMaps.distanceFromPostcode(postcode, everyActivity);
 		Gson gson = new Gson();
-//		everyActivity.add(new Activity(1, 3, "Outdoor mountain", "Mountain biking is the sport of riding bicycles off-road, often over rough terrain, using specially designed mountain bikes. Mountain bikes share similarities with other bikes but incorporate features designed to enhance durability and performance in rough terrain. (Wikipedia)", 
-//				true, LocalDate.of(2018, 8, 1), LocalTime.of(12, 15), true, 15, 
-//				"15", "Street", "Manchester", "MN1 2NI", 18, 9.99, 3.0));
-//		everyActivity.add(new Activity(2, 5, "Korfball", "Mountain biking is the sport of riding bicycles off-road, often over rough terrain, using specially designed mountain bikes. Mountain bikes share similarities with other bikes but incorporate features designed to enhance durability and performance in rough terrain. (Wikipedia)", 
-//				true, LocalDate.of(2018, 8, 1), LocalTime.of(12, 15), true, 15, 
-//				"15", "Street", "Manchester", "M40 7RL", 18, 9.99, 1.2));
-//		everyActivity.add(new Activity(3, 6, "Jujutsu", "Mountain biking is the sport of riding bicycles off-road, often over rough terrain, using specially designed mountain bikes. Mountain bikes share similarities with other bikes but incorporate features designed to enhance durability and performance in rough terrain. (Wikipedia)", 
-//				true, LocalDate.of(2018, 8, 1), LocalTime.of(12, 15), true, 15, 
-//				"15", "Street", "Manchester", "M14 7LJ", 18, 9.99, 4.3));
-//		everyActivity.add(new Activity(4, 3, "Handball", "Mountain biking is the sport of riding bicycles off-road, often over rough terrain, using specially designed mountain bikes. Mountain bikes share similarities with other bikes but incorporate features designed to enhance durability and performance in rough terrain. (Wikipedia)", 
-//				true, LocalDate.of(2018, 8, 1), LocalTime.of(12, 15), true, 15, 
-//				"15", "Street", "Manchester", "M40 2TN", 18, 9.99, 2.5));
-//		everyActivity.add(new Activity(5, 4, "Cricket", "Mountain biking is the sport of riding bicycles off-road, often over rough terrain, using specially designed mountain bikes. Mountain bikes share similarities with other bikes but incorporate features designed to enhance durability and performance in rough terrain. (Wikipedia)", 
-//				true, LocalDate.of(2018, 8, 1), LocalTime.of(12, 15), true, 15, 
-//				"15", "Street", "Manchester", "M20 2TH", 18, 9.99, 6.6));
-/*
- * 1.0:Korfball M5 4HU
-3.2:Badminton M15 6WL
-3.4:Jujutsu M30 0GX
-3.7:Go-Kart Race M40 7RL
-3.9:Volleyball M14 7LJ
-4.3:Handball M27 4UF
-6.4:Rock climbing M40 2TN
-6.6:Outdoor Archery M23 0DQ
-6.9:Cricket M20 2TH
- */
 		List<Activity> sortedEveryActivity = everyActivity.stream().sorted(Comparator.comparing(Activity::getDistance)).collect(Collectors.toList());
 		return gson.toJson(sortedEveryActivity);
 	}

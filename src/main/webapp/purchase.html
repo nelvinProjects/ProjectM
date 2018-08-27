@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="css/style.css" rel="stylesheet">
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script src="js/payments.js"></script>
+    <script src="js/control.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buy|ManchesterActivities</title>
 </head>
 <body>
@@ -12,12 +17,31 @@
         <a href="index.html" class="w3-bar-item w3-button navLogoButton">𝓜𝓪𝓷𝓬𝓱𝓮𝓼𝓽𝓮𝓻𝓐𝓬𝓽𝓲𝓿𝓲𝓽𝓲𝓮𝓼</a>
 
         <div class="w3-right">
-            <a href="about.html" class="w3-bar-item w3-button">Logout</a>
+            <a href="activity.html" class="w3-bar-item w3-button">Activities</a>
+            <a href="user.html" class="mainUser w3-bar-item w3-button">Your account</a>
+            <a href="index.html" onclick="logout()" class="w3-bar-item w3-button">Logout</a>
         </div>
     </div>
 </div>
-<div>
-    <h3>Buy</h3>
+
+<div class="w3-content w3-center w3-margin-top" style="max-width:50%; height: 100%">
+    <div class="w3-container w3-card w3-white">
+        <div><h3>Buy (Limit to one ticket only)</h3></div>
+        <p>Confirm activity details:</p>
+        <h3 id="payTitle"></h3>
+        <p id="payAddress"></p>
+        <h4 id="payPrice"></h4>
+        <p id="payQuantity">Quantity 1</p>
+        <p id="payDate"></p>
+        <p id="payTime"></p>
+        <p id="payAge"></p>
+        <form hidden id="buyThis">
+            <input id="payUserID" name="userid">
+            <input id="payActivityID" name="activityID">
+        </form>
+        <p>Pay:</p>
+        <div id="paypal-button"></div>
+    </div>
 </div>
 </body>
 </html>

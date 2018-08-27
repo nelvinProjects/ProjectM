@@ -55,6 +55,7 @@ public class ActivityDatabase {
 						.advert(rs.getBoolean(7)).date(rs.getDate(8).toLocalDate()).time(rs.getTime(9).toLocalTime())
 						.activityLive(rs.getBoolean(10)).streetAddress1(rs.getString(11)).quantity(rs.getInt(12))
 						.postcode(rs.getString(13)).streetAddress2(rs.getString(15)).city(rs.getString(16)).build();
+				
 				return activity;
 			}
 			rs.close();

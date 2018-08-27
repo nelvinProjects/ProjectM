@@ -22,7 +22,7 @@ $(document).ready(function () {
             header.appendChild(headerText);
             contain.appendChild(header);
             let numbers = document.createElement("div");
-            numbers.setAttribute("class", "w3-topright");
+            numbers.setAttribute("class", "w3-topright w3-text-deep-purple");
 
             let price = document.createElement("p");
             price.appendChild(document.createTextNode("£" + activityList[i].price));
@@ -63,7 +63,7 @@ $(document).ready(function () {
     });
 });
 
-function goToDetails(value){
+function goToDetails(value) {
     sessionStorage.tempActivity = value;
     $(location).attr("href", "details.html");
 }
