@@ -51,7 +51,6 @@ public class Process {
 		Database database = new Database();
 		database.setupDB();
 		OrderDatabase orderDatabase = new OrderDatabase();
-		List<Activity> orders = ;
 		return gson.toJson(orderDatabase.retrieveOrders(id));
 	}
 }
